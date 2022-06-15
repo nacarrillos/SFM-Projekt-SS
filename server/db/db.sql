@@ -3,7 +3,7 @@ create table benutzer (
     id BIGSERIAL NOT NULL PRIMARY KEY,
     benutzername VARCHAR(20) NOT NULL UNIQUE,
     kennwort VARCHAR(100) NOT NULL,
-    benutzertyp VARCHAR(20) NOT NULL check(benutzertyp = 'Besitzer'  OR 
+    benutzertyp VARCHAR(50) NOT NULL check(benutzertyp = 'Besitzer'  OR 
     benutzertyp = 'Handwerker' OR benutzertyp = 'Monteur' OR benutzertyp = 'Produktionsmitarbeiter' )   
 );
 

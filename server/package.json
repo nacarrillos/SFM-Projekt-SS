@@ -1,11 +1,11 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server. js",
-    "run": "node server. js"
+    "run": "node server. js",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -23,5 +23,6 @@
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.0",
     "pg": "^8.7.3"
-  }
+  },
+  "description": ""
 }
