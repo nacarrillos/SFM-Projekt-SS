@@ -47,7 +47,7 @@ insert into teilegruppen (teilegruppe_name, teilegruppe_beschreibung, teilegrupp
 insert into teilegruppen (teilegruppe_name, teilegruppe_beschreibung, teilegruppe_bild, baugruppe_id) values ('Fußboden','Dummy','Link', 1);
 insert into teilegruppen (teilegruppe_name, teilegruppe_beschreibung, teilegruppe_bild, baugruppe_id) values ('Dach','Dummy','Link', 1);
 insert into teilegruppen (teilegruppe_name, teilegruppe_beschreibung, teilegruppe_bild, baugruppe_id) values ('Fenster','Dummy','Link', 1);
-insert into teilegruppen (teilegruppe_name, teilegruppe_beschreibung, teilegruppe_bild, baugruppe_id) values ('Türen','Dummy','Link', 1);
+insert into teilegruppen (teilegruppe_name, teilegruppe_beschreibung, teilegruppe_bild, baugruppe_id) values ('Tueren','Dummy','Link', 1);
 
 "Bauteile"
 
@@ -59,13 +59,14 @@ create table bauteile(
     teilegruppe_id BIGINT NOT NULL REFERENCES teilegruppen(id) 
 );
 
-insert into bauteile (bauteil_name, bauteil_beschreibung, bauteil_bild, teilegruppe_id) values ('Tür1','Dummy','Link', 6);
-insert into bauteile (bauteil_name, bauteil_beschreibung, bauteil_bild, teilegruppe_id) values ('Tür2','Dummy','Link', 6);
-insert into bauteile (bauteil_name, bauteil_beschreibung, bauteil_bild, teilegruppe_id) values ('Tür3','Dummy','Link', 6);
-insert into bauteile (bauteil_name, bauteil_beschreibung, bauteil_bild, teilegruppe_id) values ('Tür4','Dummy','Link', 6);
+insert into bauteile (bauteil_name, bauteil_beschreibung, bauteil_bild, teilegruppe_id) values ('Tuer1','Holz-Haustuer 100 cm x 201 cm Anschlag Links','/images/Tuer1Bild.png', 6);
+insert into bauteile (bauteil_name, bauteil_beschreibung, bauteil_bild, teilegruppe_id) values ('Tuer2','Dummy','Link', 6);
+insert into bauteile (bauteil_name, bauteil_beschreibung, bauteil_bild, teilegruppe_id) values ('Tuer3','Dummy','Link', 6);
+insert into bauteile (bauteil_name, bauteil_beschreibung, bauteil_bild, teilegruppe_id) values ('Tuer4','Dummy','Link', 6);
 
-insert into bauteile (bauteil_name, bauteil_beschreibung, bauteil_bild, teilegruppe_id) values ('Fenster1','Dummy','Link', 5);
-insert into bauteile (bauteil_name, bauteil_beschreibung, bauteil_bild, teilegruppe_id) values ('Fenster2','Dummy','Link', 5);
+
+insert into bauteile (bauteil_name, bauteil_beschreibung, bauteil_bild, teilegruppe_id) values ('Fenster1','Holz-Fenster 200 cm x 40 cm','/images/Fenster1Bild.png', 5);
+insert into bauteile (bauteil_name, bauteil_beschreibung, bauteil_bild, teilegruppe_id) values ('Fenster2','Holz-Fenster 250 cm x 200 cm','/images/Fenster1Bild.png', 5);
 insert into bauteile (bauteil_name, bauteil_beschreibung, bauteil_bild, teilegruppe_id) values ('Fenster3','Dummy','Link', 5);
 insert into bauteile (bauteil_name, bauteil_beschreibung, bauteil_bild, teilegruppe_id) values ('Fenster4','Dummy','Link', 5);
 

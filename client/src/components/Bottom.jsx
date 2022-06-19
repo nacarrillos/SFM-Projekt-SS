@@ -1,18 +1,19 @@
 import React from "react";
+import Navbar from "react-bootstrap/Navbar";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 
 const Bottom = () => {
   return (
-    <nav className="navbar bg-secondary fixed-bottom">
-      <div className="container-fluid text-center">
-        <h6 className="font-weight light display text-center">Test</h6>
-      </div>
-    </nav>
-
-    //<div className="sticky-sm-bottom">Stick to the bottom on viewports sized SM (small) or wider</div>
-    //<div className="sticky-md-bottom">Stick to the bottom on viewports sized MD (medium) or wider</div>
-    //<div className="sticky-lg-bottom">Stick to the bottom on viewports sized LG (large) or wider</div>
-    //<div className="sticky-xl-bottom">Stick to the bottom on viewports sized XL (extra-large) or wider</div>
-    //<div className="sticky-xxl-bottom">Stick to the bottom on viewports sized XXL (extra-extra-large) or wider</div
+    <Navbar bg="dark" sticky="bottom" className="p-0 mt-2">
+      <Container fluid>
+        <Row className="d-flex py-2 w-100 align-items-center justify-content-center">
+          <h6 className="font-weight text-white text-center vertical-align-middle">
+            @2022 Copyright
+          </h6>
+        </Row>
+      </Container>
+    </Navbar>
   );
 };
 
