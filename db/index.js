@@ -17,6 +17,9 @@ const devConfig = {
 
 const proConfig = {
   connectionString: process.env.DATABASE_URL, //heroku addon für Datenbank auf Heroku
+  ssl: {
+    rejectUnauthorized: false,
+  },
 };
 
 const pool = new Pool(

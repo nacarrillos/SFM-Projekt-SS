@@ -7,9 +7,9 @@ create table benutzer (
     benutzertyp = 'Handwerker' OR benutzertyp = 'Monteur' OR benutzertyp = 'Produktionsmitarbeiter' )   
 );
 
-insert into benutzer (benutzername, kennwort, benutzertyp) values ('Jonny','1234!','Handwerker');
+insert into benutzer (benutzername, kennwort, benutzertyp) values ('Kyle','1234!','Handwerker');
 
-insert into benutzer (benutzername, kennwort, benutzertyp) values ('Ibti','1234!','Handwerker');
+insert into benutzer (benutzername, kennwort, benutzertyp) values ('Nicolas','1234!','Handwerker');
 
 insert into benutzer (benutzername, kennwort, benutzertyp) values ('Hannah','1234!','Monteur');
 
