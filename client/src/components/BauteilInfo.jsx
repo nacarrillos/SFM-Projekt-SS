@@ -26,7 +26,7 @@ const BauteilInfo = (props) => {
   }, []);
 
   return (
-    <Container className="shadow border border-light p-1 w-3" sm="auto">
+    <Container className="shadow border border-light p-1" sm="auto">
       <Row className="d-flex py-2">
         <h1 className="text-center">{bauteil.bauteil_name}</h1>
       </Row>

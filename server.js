@@ -15,8 +15,11 @@ app.use(cors({ origin: CLIENT_URL, credentials: true }));
 app.use(passport.initialize());
 
 const { cookie } = require("express-validator");
+const { allowedNodeEnvironmentFlags } = require("process");
 
+//Code für Heroku Falls es im Produktion ist
 if (process.env.NODE_ENV === "production") {
+  //Erlaubt uns static content aus einem Abalgeort anzuwenden
   app.use(express.static(path.join(__dirname, "client/build")));
 
   app.get("*", (req, res) => {
