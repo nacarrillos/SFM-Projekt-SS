@@ -18,6 +18,7 @@ const BauteilInfo = (props) => {
       try {
         const response = await PathFinder.get(`/${id}`);
         setBauteil(response.data.data.bauteil[0]);
+        console.log(response);
       } catch (err) {
         console.error(err.message);
       }

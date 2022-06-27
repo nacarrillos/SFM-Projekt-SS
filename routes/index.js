@@ -11,7 +11,7 @@ router.get("/api/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const results = await db.query("select * from bauteile where id=$1", [id]);
-
+    console.log(results);
     res.status(200).json({
       status: "success",
       data: {
