@@ -24,7 +24,7 @@ const BauteilSuche = () => {
 
   return (
     <Container>
-      <Row className="justify-content-md-center" lg>
+      <Row className="justify-content-md-center" md={2}>
         <Form>
           <Form.Group className="my-4" controlId="ControlId">
             <Row className="d-flex justify-content-center align-items-center">

@@ -1,19 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { onLogout } from "../apis/AuthFinder";
 import { unauthenticateUser } from "../redux/slices/authSlice";
 import Navbar from "react-bootstrap/Navbar";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Form from "react-bootstrap/Form";
-import FormControl from "react-bootstrap/FormControl";
+import { BauteilContext } from "../context/BauteilContext";
 
 const Header = () => {
   //isAuth als State importiert sodass wir wissen können, ob der Benutzer authentiziert ist oder nicht
   const { isAuth } = useSelector((state) => state.auth);
+
+  //ForTest
+  const { userData } = useContext(BauteilContext);
 
   //Import of Dispatch für die Anwendung in Logout Funktion
   const dispatch = useDispatch();
@@ -48,6 +48,17 @@ const Header = () => {
               className="d-inline-block align-top"
             />
           </Navbar.Brand>
+          <Navbar.Text>
+            {/* <pre>
+              {JSON.stringify(
+                isAuth +
+                  " " +
+                  userData.benutzername +
+                  " " +
+                  userData.benutzertyp
+              )}
+            </pre> */}
+          </Navbar.Text>
           <Navbar.Toggle aria-controls="offcanvasNavbar-expand-false" />
           <Navbar.Offcanvas
             id="offcanvasNavbar-expand-false"

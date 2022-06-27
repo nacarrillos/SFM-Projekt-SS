@@ -11,19 +11,17 @@ axios.defaults.withCredentials = true;
 // }
 
 export async function onLogin(loginData) {
-  return await axios.post("http://localhost:4000/user/login", loginData);
+  return await axios.post("/user/login", loginData);
 }
 
 export async function onLogout() {
-  return await axios.get("http://localhost:4000/user/logout");
+  return await axios.get("/user/logout");
 }
 
 export async function fetchProtectedInfo() {
-  return await axios.get("http://localhost:4000/user/protected");
+  return await axios.get("/user/protected");
 }
 
 export async function getBenutzerTyp(benutzername) {
-  return await axios.get(
-    `http://localhost:4000/user/benutzertyp/${benutzername}`
-  );
+  return await axios.get(`/user/benutzertyp/${benutzername}`);
 }
