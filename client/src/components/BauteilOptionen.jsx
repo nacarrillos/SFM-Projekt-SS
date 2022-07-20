@@ -9,6 +9,7 @@ import Container from "react-bootstrap/Container";
 import Collapse from "react-bootstrap/Collapse";
 import Table from "react-bootstrap/Table";
 import { useSelector } from "react-redux";
+import { getBenutzerTyp } from "../apis/AuthFinder";
 
 const BauteilOptionen = () => {
   const { id } = useParams();
@@ -16,7 +17,6 @@ const BauteilOptionen = () => {
 
   const { historie, setHistorie } = useContext(BauteilContext);
   const { userData } = useContext(BauteilContext);
-  console.log(userData);
 
   const getHistorie = async () => {
     try {
@@ -56,14 +56,30 @@ const BauteilOptionen = () => {
             aria-controls="historie-collapse-component"
             aria-expanded={open}
             variant="secondary"
-            size="lg"
+            size="md"
           >
             Historie
           </Button>
         </Col>
         <Col>
-          {isAuth && userData.benutzetyp !== "undefined" ? (
-            <Button>Funtion 2</Button>
+          {isAuth && userData.benutzertyp === "Handwerker" ? (
+            <Row>
+              <Col>
+                <Button variant="outline-primary" size="md" disabled>
+                  Grundris Abrufen
+                </Button>
+              </Col>
+              <Col>
+                <Button variant="outline-primary" size="md" disabled>
+                  Reparatur Info
+                </Button>
+              </Col>
+              <Col>
+                <Button variant="outline-primary" size="md" disabled>
+                  Montage Info
+                </Button>
+              </Col>
+            </Row>
           ) : (
             <></>
           )}

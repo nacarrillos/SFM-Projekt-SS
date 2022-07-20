@@ -49,7 +49,7 @@ const Header = () => {
             />
           </Navbar.Brand>
           <Navbar.Text>
-            {/* <pre>
+            <pre>
               {JSON.stringify(
                 isAuth +
                   " " +
@@ -57,7 +57,7 @@ const Header = () => {
                   " " +
                   userData.benutzertyp
               )}
-            </pre> */}
+            </pre>
           </Navbar.Text>
           <Navbar.Toggle aria-controls="offcanvasNavbar-expand-false" />
           <Navbar.Offcanvas
