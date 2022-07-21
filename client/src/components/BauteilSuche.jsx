@@ -34,7 +34,7 @@ const BauteilSuche = () => {
                   value={bauteilId}
                   onChange={(e) => setBauteilId(e.target.value)}
                   type="number"
-                  placeholder="Screib die Bauteile ID Wenn du es kennst"
+                  placeholder="Schreib die Bauteile ID Wenn du es kennst"
                   required
                 />
               </Col>
