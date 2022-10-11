@@ -1,8 +1,15 @@
+//bcryptjs für die Verschlüsselung von Passwörter
 const { hash } = require("bcryptjs");
+//db für die Anwendung der Postgres Datenbank
 const db = require("../db");
+//jsonwebtoken für die Anwendunf von Webtokens auf dem Browser und somit, mit Cookies Authentifizierungsverfahren durchzuführen
 const { sign } = require("jsonwebtoken");
+//Importierung der secret Schlüssel von Constants
 const { SECRET } = require("../constants");
 
+// Register Verfahren, es nimmt die Daten aus dem Request des Frontends (benutzername, kennwort und benutzertyp),
+// verschlüsselt das Passwort bevor es in den Datenbank gespeichert wird und dann speichert die sämtlichen Daten eines Benutzers in
+// der Tabelle Benutzer
 exports.register = async (req, res) => {
   const { benutzername, kennwort, benutzertyp } = req.body;
   try {
@@ -23,6 +30,8 @@ exports.register = async (req, res) => {
   }
 };
 
+//Einloggen-Funktion für die Authentifizierung, es nimmt die Daten eines Benutzers aus dem Frontend und erstellt Cookies,
+// die die richtige Aunthetifizierung eines Benutzers aus dem Browser nachweisen kann
 exports.login = async (req, res) => {
   let benutzer = req.benutzer;
   let payload = {
@@ -43,6 +52,7 @@ exports.login = async (req, res) => {
   }
 };
 
+// Funktion für das Ausloggen, es löscht das Cookie von einem aunthentifizierte Benutzer und loggt eines Benutzers aus.
 exports.logout = async (req, res) => {
   try {
     return res.status(200).clearCookie("token", { httpOnly: true }).json({
@@ -57,7 +67,7 @@ exports.logout = async (req, res) => {
   }
 };
 
-//example of protected API
+//Beispiel für ein API, die gibt zu dem Frontend eine positive Antwort, nur wenn das Request aus einem aunthzifizierten Benutzer kommt
 exports.protected = async (req, res) => {
   try {
     return res.status(200).json({

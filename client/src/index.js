@@ -10,6 +10,7 @@ import "../node_modules/react-bootstrap/dist/react-bootstrap";
 /**/
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
+//Rendering von jeder Seite mit Stricktmode und mit der Anwendung von Redux Store, alle anderen wird aus der App.jsx File "gerendet"
 root.render(
   <React.StrictMode>
     <Provider store={store}>
@@ -17,5 +18,3 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
-
-//ReactDOM.render(<App/>, document.getElementById('root'));

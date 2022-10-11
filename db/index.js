@@ -1,3 +1,4 @@
+// Code für die Anwendung von Postgres und die Benutzung von globalen/lokalen Konstanten.
 const { Pool } = require("pg");
 const {
   PGUSER,
@@ -7,6 +8,7 @@ const {
   PGPORT,
 } = require("../constants");
 
+//Einstellung der Konstanten für die Postgres in Entwicklung (Development oder dev)
 const devConfig = {
   PGUSER,
   PGPASSWORD,
@@ -15,6 +17,7 @@ const devConfig = {
   PGPORT,
 };
 
+//Einstellung der Konstanten für die Postgres in Produktion (pro)
 const proConfig = {
   connectionString: process.env.DATABASE_URL, //heroku addon für Datenbank auf Heroku
   ssl: {
@@ -22,12 +25,10 @@ const proConfig = {
   },
 };
 
+//Normale Funktion für die Anwendung von Postgres mit ExpressJS, wird die Einstellung von Entwicklung oder von Produktion benutzen
+// anhand von der Situation
 const pool = new Pool(
   process.env.NODE_ENV === "production" ? proConfig : devConfig
 );
 
 module.exports = pool;
-
-// module.exports = {
-//   query: (text, params) => pool.query(text, params),
-// };

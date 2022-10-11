@@ -10,18 +10,23 @@ axios.defaults.withCredentials = true;
 //   );
 // }
 
+//API zu Backend für eine Loginrequest
 export async function onLogin(loginData) {
   return await axios.post("/user/login", loginData);
 }
 
+//API zu Backend für eine Logoutrequest
 export async function onLogout() {
   return await axios.get("/user/logout");
 }
 
+//API zu Backend um zu prüfen ob einem User für einem "protected" Route authentifiziert ist. Noch nicht angewendet aber notwendig für
+// zukunftige Funktionen
 export async function fetchProtectedInfo() {
   return await axios.get("/user/protected");
 }
 
+//API zu Backend, um Typ des Benutzers abzurufen
 export async function getBenutzerTyp(benutzername) {
   return await axios.get(`/user/benutzertyp/${benutzername}`);
 }

@@ -1,7 +1,9 @@
+// dotenv für die verarbeitung von secret Keys
 const { config } = require("dotenv");
 
 config();
 
+//Exports über alle Systemvariablen, um sowohl Lokal als auch von Heroku, arbeiten zu können.
 module.exports = {
   PORT: process.env.PORT || 4000,
   SERVER_URL: process.env.SERVER_URL,

@@ -1,4 +1,5 @@
 const express = require("express");
+//Import aus den Authentifizierung Controllers
 const { register, login, logout, protected } = require("../controllers/auth");
 const router = express.Router();
 const db = require("../db");
@@ -6,7 +7,7 @@ const { validationMiddleware } = require("../middleware/validation-middleware");
 const { registerValidation, loginValidation } = require("../validators");
 const { userAuth } = require("../middleware/auth-middleware");
 
-//get Bauteileinfo
+//API für den Abruf von Information aus einem Bauteil durch ID
 router.get("/api/:id", async (req, res) => {
   try {
     const id = req.params.id;
@@ -22,7 +23,7 @@ router.get("/api/:id", async (req, res) => {
   }
 });
 
-//get Historie
+//API für den Abruf der Historie aus einem Bauteil durch ID
 router.get("/api/:id/historie", async (req, res) => {
   try {
     const id = req.params.id;
@@ -42,7 +43,7 @@ router.get("/api/:id/historie", async (req, res) => {
   }
 });
 
-//get Benutzetyp zur Darstellung der Seite
+//API für den Abruf vom Benutzertyp aus einem Benutzer mit dem Benutzername -> zur Darstellung der Seiten anders für jede Benutzertyp
 router.get("/user/benutzertyp/:benutzername", async (req, res) => {
   try {
     const benutzername = req.params.benutzername;
@@ -61,14 +62,13 @@ router.get("/user/benutzertyp/:benutzername", async (req, res) => {
   }
 });
 
-//Login
-
+//API für das Einloggen
 router.post("/user/login", loginValidation, validationMiddleware, login);
 
-//Logout
-
+//API für das Ausloggen
 router.get("/user/logout", logout);
 
+//API für die Überprüfung von Credentials, bevor es in einem Protected Route gegangen werden kann
 router.get("/user/protected", userAuth, protected);
 
 module.exports = router;

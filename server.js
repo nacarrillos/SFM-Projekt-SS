@@ -34,7 +34,6 @@ if (process.env.NODE_ENV === "production") {
 app.use(router);
 
 // Value of port is stored in environment variable File .env
-
 app.listen(PORT, () => {
   console.log(`server is up and listening on port ${PORT}`);
 });

@@ -59,21 +59,6 @@ const BauteilInfo = (props) => {
         </Col>
       </Row>
     </Container>
-
-    // <div className="container-md border border-primary pt-2 mt-5">
-    //   <div className="row mb-3">
-    //     {/* Div Bauteilname */}
-    //     <div className="border-bottom border-primary text-center">
-    //       {bauteil.bauteil_name}
-    //     </div>
-    //     <div className="row">
-    //       {/* Div Beschreibung */}
-    //       <div className="col ">{bauteil.bauteil_beschreibung}</div>
-    //       {/* Div Bild */}
-    //       <div className="col text-center">{bauteil.bauteil_bild}</div>
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 
