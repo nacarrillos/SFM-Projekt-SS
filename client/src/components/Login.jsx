@@ -12,6 +12,7 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 
+//Komponent für Login Page
 const Login = () => {
   const [benutzername, setBenutzerName] = useState("");
   const [kennwort, setKennwort] = useState("");
@@ -22,6 +23,7 @@ const Login = () => {
 
   const dispatch = useDispatch();
 
+  //Funciton, um das Aktion des Endbenutzers beim Loggin Clicken zu steuern
   const handleLogIn = async (e) => {
     e.preventDefault();
     try {
@@ -47,6 +49,7 @@ const Login = () => {
     }
   };
 
+  //React Bootstrap bzw. HTML Code für das Ansehen der Login Page
   return (
     <Container className="my-5">
       <Row className="justify-content-md-center" sm="auto">
@@ -130,75 +133,6 @@ const Login = () => {
         </Card>
       </Row>
     </Container>
-    // <div>
-    //   <p className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">
-    //     {errMsg.msg}
-    //   </p>
-    //   <form action="">
-    //     {/* <!-- Email input --> */}
-    //     <div className="form-outline mb-4">
-    //       <input
-    //         value={benutzername}
-    //         onChange={(e) => setBenutzerName(e.target.value)}
-    //         type="text"
-    //         id="benutzername"
-    //         className="form-control"
-    //         name="Benutzername"
-    //         required
-    //       />
-    //       <label className="form-label" htmlFor="form2Example1">
-    //         Benutzername
-    //       </label>
-    //     </div>
-
-    //     {/* <!-- Password input --> */}
-    //     <div className="form-outline mb-4">
-    //       <input
-    //         value={kennwort}
-    //         onChange={(e) => setKennwort(e.target.value)}
-    //         type="password"
-    //         id="form2Example2"
-    //         className="form-control"
-    //         required
-    //       />
-    //       <label className="form-label" htmlFor="form2Example2">
-    //         Kennwort
-    //       </label>
-    //     </div>
-
-    //     {/* <!-- 2 column grid layout for inline styling --> */}
-    //     <div className="row mb-4">
-    //       <div className="col d-flex justify-content-center">
-    //         {/* <!-- Checkbox --> */}
-    //         {/* verwendung zu prüfen!!! <div className="form-check">
-    //                         <input className="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-    //                         <label className="form-check-label" for="form2Example31"> Remember me </label>
-    //                     </div> */}
-    //       </div>
-
-    //       <div className="col">
-    //         {/* <!-- Simple link --> */}
-    //         <a href="#!">Passwort vergessen?</a>
-    //       </div>
-    //     </div>
-
-    //     {/* <!-- Submit button --> */}
-    //     <button
-    //       onClick={handleLogIn}
-    //       type="button"
-    //       className="btn btn-primary btn-block mb-4"
-    //     >
-    //       Anmelden
-    //     </button>
-
-    //     {/* <!-- Register Info --> */}
-    //     <div className="text-center">
-    //       <p>Für die Registrierung bitte den Admin kontaktieren</p>
-    //     </div>
-    //   </form>
-    // </div>
-    // //   )}
-    // // </>
   );
 };
 

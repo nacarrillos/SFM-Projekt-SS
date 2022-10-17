@@ -8,11 +8,14 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 
+//Function, um Information eines Bauteiles aus dem Backend zu lesen und zu Render mit dem React Bootstrap
 const BauteilInfo = (props) => {
+  //lies die ID aus dem Route URL
   const { id } = useParams();
-
+  //nimmt die Variable Bauteilinformation aus dem Context  ohne Werte
   const { bauteil, setBauteil } = useContext(BauteilContext);
 
+  //function um auf dem Backend die Information eines Bauteiles mit dem ID zu lesen und in dem Context zu setzen
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -26,6 +29,7 @@ const BauteilInfo = (props) => {
     fetchData();
   }, []);
 
+  //React Bootstrap bzw. HTML Code für das Ansehen der Information eines Bauteiles
   return (
     <Container className="shadow border border-light p-1" sm="auto">
       <Row className="d-flex py-2">

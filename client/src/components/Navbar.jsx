@@ -8,6 +8,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import Nav from "react-bootstrap/Nav";
 import { BauteilContext } from "../context/BauteilContext";
 
+//Header Komponent für jeder Seite
 const Header = () => {
   //isAuth als State importiert sodass wir wissen können, ob der Benutzer authentiziert ist oder nicht
   const { isAuth } = useSelector((state) => state.auth);
