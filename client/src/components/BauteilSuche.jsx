@@ -9,8 +9,10 @@ import Container from "react-bootstrap/Container";
 
 const BauteilSuche = () => {
   const [bauteilId, setBauteilId] = useState("");
+  //definition von navigate, um auf einem URL zu gehen
   let navigate = useNavigate();
 
+  //Function um Aktionen des Endbenutzers auf dem Suchfeld zu steuern, beim Click auf Suche wird das Bauteil ID gesucht.
   const handleSuche = (e, id) => {
     e.preventDefault();
     try {
@@ -22,6 +24,7 @@ const BauteilSuche = () => {
     }
   };
 
+  //React Bootstrap bzw. HTML Code für das Ansehen der suchfeld für Bauteile auf dem Home
   return (
     <Container>
       <Row className="justify-content-md-center" md={2}>
@@ -53,31 +56,6 @@ const BauteilSuche = () => {
         </Form>
       </Row>
     </Container>
-    // <div className="mt-4 mb-4">
-    //   <form action="">
-    //     <div className="row">
-    //       <div className="col-11">
-    //         <input
-    //           value={bauteilId}
-    //           onChange={(e) => setBauteilId(e.target.value)}
-    //           className="form-control"
-    //           type="number"
-    //           placeholder="Screib die Bauteile ID Wenn du es kennst"
-    //           required
-    //         />
-    //       </div>
-    //       <div className="col">
-    //         <button
-    //           onClick={(e) => handleSuche(e, bauteilId)}
-    //           type="submit"
-    //           className="btn btn-primary"
-    //         >
-    //           Suchen
-    //         </button>
-    //       </div>
-    //     </div>
-    //   </form>
-    // </div>
   );
 };
 

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { fetchProtectedInfo, onLogout } from "../apis/AuthFinder";
 import { unauthenticateUser } from "../redux/slices/authSlice";
 
-//ProtectedRoute sollte zu jedem private Komponent geändert werden
+//ProtectedRoute sollte zu jedem private Komponent geändert werden, aktuell nur ein Placeholder
 const ProtectedRoute = () => {
   const [loading, setLoading] = useState(true);
   const [ProtectedData, setProtectedData] = useState(null);

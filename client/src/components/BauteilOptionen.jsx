@@ -13,11 +13,14 @@ import { getBenutzerTyp } from "../apis/AuthFinder";
 
 const BauteilOptionen = () => {
   const { id } = useParams();
+  //isAuth aus dem State des Browsers wird gelesen, um die Anthentifizierung eines Benutzers danach zu prüfen
   const { isAuth } = useSelector((state) => state.auth);
 
+  //Context für Historie & UserData zu lesen
   const { historie, setHistorie } = useContext(BauteilContext);
   const { userData } = useContext(BauteilContext);
 
+  //function um die Historie eines Bauteiles aus Backend zu lesen und in Variable newHistorie zu setzen
   const getHistorie = async () => {
     try {
       const response = await PathFinder.get(`/${id}/historie`);
@@ -40,13 +43,16 @@ const BauteilOptionen = () => {
     }
   };
 
+  //Variable Boolean, sodass Historie auf Rendering auf oder zu ist
   const [open, setOpen] = useState(false);
 
+  //function, um das auf/zumachen der Historie zu setzen
   const historieHandler = () => {
     getHistorie();
     setOpen(!open);
   };
 
+  //React Bootstrap bzw. HTML Code für das Ansehen der Information einer Historie
   return (
     <Container className="shadow border border-light p-1 mt-3" md="auto">
       <Row className="my-3 mx-2">
@@ -115,48 +121,6 @@ const BauteilOptionen = () => {
         </Container>
       </Row>
     </Container>
-
-    // <Container className="shadow border border-light p-1 mt-3" md="auto">
-    //   <Row>
-    //     <Col>
-    //       <Accordion>
-    //         <Accordion.Item eventKey="0">
-    //           <Accordion.Header
-    //             variant="secondary"
-    //             className="mb-4 mr-2"
-    //             onClick={getHistorie}
-    //           >
-    //             Historie
-    //           </Accordion.Header>
-    //           <Accordion.Body>
-    //             <Table striped bordered hover>
-    //               <thead>
-    //                 <tr className="big-primary">
-    //                   <th scope="col">Typ</th>
-    //                   <th scope="col">Beschreibung</th>
-    //                   <th scope="col">Fertigstellungsdatum</th>
-    //                 </tr>
-    //               </thead>
-    //               <tbody>
-    //                 {historie &&
-    //                   historie.map((aufgabe) => {
-    //                     return (
-    //                       <tr key={aufgabe.id}>
-    //                         <td>{aufgabe.aufgabe_typ}</td>
-    //                         <td>{aufgabe.aufgabe_beschreibung}</td>
-    //                         <td>{aufgabe.aufgabe_abschlussdatum}</td>
-    //                       </tr>
-    //                     );
-    //                   })}
-    //               </tbody>
-    //             </Table>
-    //           </Accordion.Body>
-    //         </Accordion.Item>
-    //       </Accordion>
-    //     </Col>
-    //     <Col></Col>
-    //   </Row>
-    // </Container>
   );
 };
 
