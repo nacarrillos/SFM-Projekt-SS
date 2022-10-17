@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import BauteilSuche from "../components/BauteilSuche";
 import { BauteilContext } from "../context/BauteilContext";
 
+//Homes des Websites URL
 const Home = () => {
   const { userData } = useContext(BauteilContext);
   console.log(userData.benutzername);

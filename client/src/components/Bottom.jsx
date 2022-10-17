@@ -3,6 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
+//Fußzeile als Komponent
 const Bottom = () => {
   return (
     <Navbar bg="dark" sticky="bottom" className="p-0 mt-2">
