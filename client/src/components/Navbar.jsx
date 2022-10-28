@@ -7,6 +7,8 @@ import Container from "react-bootstrap/Container";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Nav from "react-bootstrap/Nav";
 import { BauteilContext } from "../context/BauteilContext";
+import "./Navbar.css";
+
 
 //Header Komponent für jeder Seite
 const Header = () => {
@@ -36,14 +38,14 @@ const Header = () => {
       <Navbar
         sticky="top"
         key="false"
-        bg="light"
         expand="false"
-        className="mb-3"
+        className="color-nav"
+        
       >
-        <Container fluid>
+        <Container>
           <Navbar.Brand href="/">
             <img
-              src="/images/logo.png"
+              src="/images/logoNeuWhite.png"
               alt="Wooden Valley Logo"
               height="55"
               className="d-inline-block align-top"
