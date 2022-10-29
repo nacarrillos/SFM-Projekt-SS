@@ -9,6 +9,8 @@ import Navbar from "./components/Navbar";
 import { useSelector } from "react-redux";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import "./App.css";
+import Datenschutz from "./routes/Datenschutz";
+import Impressum from "./routes/Impressum";
 
 //Wenn private Routes getriggert werden wird erst geprüft ob der Benutzer aunthentifiziert ist, ansonsten wird zu Login Page geführt
 const PrivateRoutes = () => {
@@ -34,6 +36,8 @@ const App = () => {
         <Router>
           <Routes>
             <Route exact path="/" element={<Home />} />
+            <Route exact path="/Datenschutz" element={<Datenschutz />} />
+            <Route exact path="/Impressum" element={<Impressum />} />
             <Route exact path="/bauteil/:id" element={<BauteilHome />} />
             <Route element={<PrivateRoutes />}>
               <Route path="/protected" element={<ProtectedRoute />} />
