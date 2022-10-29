@@ -7,7 +7,32 @@
   padding-top: 3em;
   padding-bottom: 3em;
   margin-top: auto;
+  
  
+}
+
+a:link
+{
+    color:#FFFFFF;
+    text-decoration: none; 
+}
+
+a:visited
+{
+    color:#FFFFFF;
+    text-decoration: none; 
+}
+
+a:hover 
+{
+    color:#FFFFFF;
+    text-decoration: none; 
+}
+
+a:active 
+{
+    color:#FFFFFF;
+    text-decoration: none; 
 }
 
 

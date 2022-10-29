@@ -9,7 +9,8 @@ const Home = () => {
   return (
     <div className="container">
       <div>
-        <h1 className="text-center">Hallo {userData.benutzername}</h1>
+        <h1 className="text-center">Hierbei handelt es sich um eine Website im Rahmen eines
+        Studienprojekts der Hochschule Esslingen {userData.benutzername}</h1>
       </div>
       <div>
         <BauteilSuche />

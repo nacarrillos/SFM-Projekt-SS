@@ -37,8 +37,10 @@ const Bottom = () => {
           <Col></Col>
           <Col></Col>
         </Row>
-        <Row className="justify-content-md-center">
-          © 2022 WoodenValley gGmbH | Datenschutz | Impressum
+        <Row>
+         <Col className="text-center">
+          © 2022 WoodenValley gGmbH | <a href="/Datenschutz">Datenschutz</a> | <a href="/Impressum">Impressum</a>
+          </Col>
         </Row>
 
       </Container>
