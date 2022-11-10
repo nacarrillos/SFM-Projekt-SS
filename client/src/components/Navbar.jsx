@@ -4,7 +4,7 @@ import { onLogout } from "../apis/AuthFinder";
 import { unauthenticateUser } from "../redux/slices/authSlice";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
-import Offcanvas from "react-bootstrap/Offcanvas";
+
 import Nav from "react-bootstrap/Nav";
 import { BauteilContext } from "../context/BauteilContext";
 import "./Navbar.css";
@@ -33,71 +33,90 @@ const Header = () => {
     }
   };
 
+  
+  
+
   return (
     <>
+
+      {/* Default-Breakpoint Medium 'md' bei Seiten die kleiner als 768 px dargestellt werden
+      */}
       <Navbar
-        sticky="top"
-        key="false"
-        expand="false"
-        className="color-nav"
+        collapseOnSelect
+        expand="md"
+        className="navMod"
+        variant = "dark" 
         
       >
-        <Container>
-          <Navbar.Brand href="/">
-            <img
-              src="/images/logoNeuWhite.png"
-              alt="Wooden Valley Logo"
-              height="55"
-              className="d-inline-block align-top"
-            />
-          </Navbar.Brand>
-          <Navbar.Text>
-            {/* <pre>
-              {JSON.stringify(
-                isAuth +
-                  " " +
-                  userData.benutzername +
-                  " " +
-                  userData.benutzertyp
-              )}
-            </pre> */}
-          </Navbar.Text>
-          <Navbar.Toggle aria-controls="offcanvasNavbar-expand-false" />
-          <Navbar.Offcanvas
-            id="offcanvasNavbar-expand-false"
-            aria-labelledby="offcanvasNavbarLabel-expand-false"
-            placement="end"
-          >
-            <Offcanvas.Header closeButton>
-              <Offcanvas.Title id="offcanvasNavbarLabel-expand-false">
-                Optionen
-              </Offcanvas.Title>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-              <Nav className="justify-content-end flex-grow-1 pe-3">
-                <Nav.Link href="/" className="text-secondary">
-                  Home
-                </Nav.Link>
-                {isAuth ? (
-                  <Nav.Link
-                    href="/"
-                    onClick={() => logout()}
-                    className="text-secondary"
-                  >
-                    Abmeldung
-                  </Nav.Link>
-                ) : (
-                  <Nav.Link href="/login" className="text-secondary">
-                    Anmeldung
-                  </Nav.Link>
-                )}
-              </Nav>
-            </Offcanvas.Body>
-          </Navbar.Offcanvas>
+        
+        <Container fluid className="navContainer">
+              <Navbar.Brand href="/" className="navBrand">
+                <img 
+                  src="/images/logoNeuWhite.png"
+                  alt="Wooden Valley Logo"
+                  height="55"
+                  className="navImg"
+                />
+              </Navbar.Brand>
+              <Navbar.Text>
+                {/* <pre>
+                  {JSON.stringify(
+                    isAuth +
+                      " " +
+                      userData.benutzername +
+                      " " +
+                      userData.benutzertyp
+                  )}
+                </pre> */}
+              </Navbar.Text>
+              <Navbar.Toggle aria-controls="responsive-navbar-nav" className="navToogle"/>
+                
+                <Navbar.Collapse id="responsive-navbar-nav">
+                <div className="navCollContainer">
+                <Nav className="navElements" >
+                    <Nav.Link href="/" className="navLinkBody">
+                      HOME
+                    </Nav.Link>
+                    {isAuth ? (
+                      <Nav.Link
+                        href="/"
+                        onClick={() => logout()}
+                        className="navLinkBody"
+                      >
+                        ABMELDUNG
+                      </Nav.Link>
+                    ) : (
+                      <Nav.Link href="/login" className="navLinkBody">
+                        ANMELDUNG
+                      </Nav.Link>
+
+                      
+                    )}
+                    <Nav.Link href="/" className="navLinkBody">
+                      PLACEHOLDER1
+                    </Nav.Link>
+                    <Nav.Link href="/" className="navLinkBody">
+                      PLACEHOLDER2
+                    </Nav.Link>
+                  </Nav>
+
+                  </div>
+                </Navbar.Collapse>
+                
+
+
+             
+              
         </Container>
       </Navbar>
+    
+
     </>
+      
   );
 };
 
 export default Header;
+
+
+
