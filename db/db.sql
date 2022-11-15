@@ -7,6 +7,15 @@ create table benutzer (
     benutzertyp = 'Handwerker' OR benutzertyp = 'Monteur' OR benutzertyp = 'Produktionsmitarbeiter' )   
 );
 
+-- Änderung für den Benutzer "Admin" 15.11.2022
+    ALTER TABLE benutzer DROP CONSTRAINT benutzer_benutzertyp_check;
+    ALTER TABLE benutzer ADD CHECK (benutzertyp = 'Besitzer'  OR 
+    benutzertyp = 'Handwerker' OR benutzertyp = 'Monteur' OR benutzertyp = 'Produktionsmitarbeiter' 
+        OR benutzertyp = 'Produktionsmitarbeiter' OR benutzertyp = 'Admin');
+    -- Check für Neue Admin
+    insert into benutzer (benutzername, kennwort, benutzertyp) values ('Nicawt00','1234!','Admin');
+
+
 insert into benutzer (benutzername, kennwort, benutzertyp) values ('Kyle','1234!','Handwerker');
 
 insert into benutzer (benutzername, kennwort, benutzertyp) values ('Nicolas','1234!','Handwerker');

@@ -71,4 +71,7 @@ router.get("/user/logout", logout);
 //API für die Überprüfung von Credentials, bevor es in einem Protected Route gegangen werden kann
 router.get("/user/protected", userAuth, protected);
 
+//API für die Registrierung
+router.post("/user/register", registerValidation, register);
+
 module.exports = router;
