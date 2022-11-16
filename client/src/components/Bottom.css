@@ -7,9 +7,14 @@
   padding-top: 3em;
   padding-bottom: 3em;
   margin-top: auto;
+}
+
+  .containerBottom{
+    max-width: 1080px !important;
+   
+  }
   
  
-}
 
 a:link
 {
@@ -35,5 +40,20 @@ a:active
     text-decoration: none; 
 }
 
+/* MEDIA QUERIES*/
 
+@media screen and (max-width: 851px) {
+
+  .main-footer{
+    max-width: 851px !important;
+
+  }
+
+  .containerBottom{
+    max-width: 1080px !important;
+   
+  }
+
+  
+}
 

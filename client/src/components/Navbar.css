@@ -5,6 +5,7 @@
   padding-top: 0 !important;
   padding-bottom: 0 !important;  
   
+  
 }
 
 .navContainer{
@@ -36,7 +37,7 @@
 
 
 .navCollContainer{
-  width: 810px !important;
+  width: 450px !important;
   min-height: 83.0167px !important;
   
   
@@ -63,16 +64,31 @@
   
 }
 
+/*MEDIA QUERRIES
 
 
+@media screen and (max-width: 851px) {
 
+  .navMod{
+    max-width: 851px !important;
+    background-color: red;
 
-/*
+  }
 
-.navbarCollapse{
-  width: 810px !important;
-  height: 30px !important;
-  
-  
+  .navContainer{
+    max-width: 1080px !important;
+   
+  }
 
-}*/
+  .navCollContainer{
+    width: 450px !important;
+    min-height: 83.0167px !important;
+
+    background-color: blue !important;
+    
+    
+  }
+
+}
+
+*/

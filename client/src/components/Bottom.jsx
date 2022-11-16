@@ -10,9 +10,9 @@ import Row from "react-bootstrap/Row";
 const Bottom = () => {
  return (
     <div className="main-footer">
-      <Container className="ContainerBottom">
+      <Container fluid className="containerBottom">
         <Row>
-          <Col>
+          <Col className="text-end">
             <img
               src="/images/logoNeuWhite.png"
               alt="Wooden Valley Logo"
@@ -20,7 +20,7 @@ const Bottom = () => {
               className="d-inline-block align-top"
             />
           </Col>
-          <Col xs={3}>
+          <Col className="text-start">
             <p>WoodenValley gGmbH</p>
             
             In Verantwortungseigentum
@@ -30,11 +30,11 @@ const Bottom = () => {
             70376 Stuttgart
             
           </Col>
-          <Col>3 of 3</Col>
+          
         </Row>
         <Row>
           <Col xs={3}>Als gemeinnütziges Unternehmen in Verantwortungseigentum nehmen wir das Cradle 2 Cradle Prinzip als Leitmotiv für unsere Vorhaben und stellen damit die Klimapositivität in den Mittelpunkt all unserer Handlungen.</Col>
-          <Col></Col>
+          
           <Col></Col>
         </Row>
         <Row>
@@ -44,7 +44,7 @@ const Bottom = () => {
         </Row>
 
       </Container>
-    </div>
+      </div>
   );
 };
 
