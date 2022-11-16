@@ -8,6 +8,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import { BauteilContext } from "../context/BauteilContext";
 import "./Navbar.css";
+import "../App.css";
 
 
 //Header Komponent für jeder Seite
@@ -45,7 +46,8 @@ const Header = () => {
         collapseOnSelect
         expand="md"
         className="navMod"
-        variant = "dark" 
+        variant = "dark"
+        
         
       >
         
