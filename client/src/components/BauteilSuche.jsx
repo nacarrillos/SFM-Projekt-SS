@@ -31,7 +31,7 @@ const BauteilSuche = () => {
         <Form>
           <Form.Group className="my-4" controlId="ControlId">
             <Row className="d-flex justify-content-center align-items-center">
-              <Col>
+              <Col /**/className="mb-2">
                 <Form.Control
                   size="lg"
                   value={bauteilId}
@@ -41,7 +41,7 @@ const BauteilSuche = () => {
                   required
                 />
               </Col>
-              <Col sm={1}>
+              <Col sm={1} className="mb-2">
                 <Button
                   onClick={(e) => handleSuche(e, bauteilId)}
                   type="submit"

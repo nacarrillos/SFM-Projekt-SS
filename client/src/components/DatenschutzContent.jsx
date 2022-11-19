@@ -1,5 +1,5 @@
 import React from "react";
-import "./DatenschutzContent.css";
+import "../styles/DatenschutzContent.css";
 
 
 
