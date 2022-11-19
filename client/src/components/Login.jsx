@@ -51,14 +51,14 @@ const Login = () => {
 
   //React Bootstrap bzw. HTML Code für das Ansehen der Login Page
   return (
-    <Container className="my-5">
+    <Container >
       <Row className="justify-content-md-center" sm="auto">
-        <Card className="shadow-lg p-0">
-          <Card.Header className="text-center p-2">
+        <Card className=" p-0" >
+          <Card.Header className="text-center p-2" style={{ backgroundColor: "#dee2e6" }}>
             <h1>Anmeldung</h1>
           </Card.Header>
-          <Card.Body className="p-0" style={{ backgroundColor: "#f7f5f9" }}>
-            <Form className="p-4 rounded  border-light justify-content-md-center shadow">
+          <Card.Body className="p-0" style={{ backgroundColor: "#dee2e6" }}>
+            <Form className="p-4 rounded  border-light justify-content-md-center ">
               <Alert
                 className="p-0"
                 key="danger"

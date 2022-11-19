@@ -4,8 +4,8 @@
   /*font-family: Open Sans,Arial,sans-serif;*/
   font-weight: 100;
   font-size: 15px;
-  padding-top: 3em;
-  padding-bottom: 3em;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
   margin-top: auto;
 }
 
@@ -13,8 +13,6 @@
     max-width: 1080px !important;
    
   }
-  
- 
 
 a:link
 {
@@ -46,6 +44,7 @@ a:active
 
   .main-footer{
     max-width: 851px !important;
+    font-size: 12px;
 
   }
 
