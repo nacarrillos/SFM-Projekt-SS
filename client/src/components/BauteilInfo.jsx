@@ -31,11 +31,11 @@ const BauteilInfo = (props) => {
 
   //React Bootstrap bzw. HTML Code für das Ansehen der Information eines Bauteiles
   return (
-    <Container className="shadow border border-light p-1" sm="auto">
-      <Row className="d-flex py-2">
+    <Container className="square border border-1 rounded-3 p-1" sm="auto">
+      <Row className="d-flex py-2 mx-0">
         <h1 className="text-center">{bauteil.bauteil_name}</h1>
       </Row>
-      <Row>
+      <Row className="mx-0">
         <Col>
           <Card className="h-100 mx-1">
             <Card.Header className="text-center" as="h3">

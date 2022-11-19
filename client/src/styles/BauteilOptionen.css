@@ -1,0 +1,53 @@
+@media screen and (max-width: 851px) {
+
+  /*Layout Buttons in Bauteiloptionen*/
+  .buttonOptionen{
+    font-size: 18px !important;
+    width: 110px !important;
+    margin-bottom: 1em !important;
+    margin-top: 1em !important;
+
+  }
+
+  .tableContentHistorie{
+    background-color: red !important;
+    transform: scale(0.84);
+  }
+
+
+}
+
+
+
+
+
+
+
+
+/*MEDIA QUERRIES
+
+
+@media screen and (max-width: 851px) {
+
+  .navMod{
+    max-width: 851px !important;
+    background-color: red;
+
+  }
+
+  .navContainer{
+    max-width: 1080px !important;
+   
+  }
+
+  .navCollContainer{
+    width: 450px !important;
+    min-height: 83.0167px !important;
+
+    background-color: blue !important;
+    
+    
+  }
+
+}
+*/
