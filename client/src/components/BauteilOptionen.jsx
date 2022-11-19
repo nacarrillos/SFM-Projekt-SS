@@ -10,6 +10,7 @@ import Collapse from "react-bootstrap/Collapse";
 import Table from "react-bootstrap/Table";
 import { useSelector } from "react-redux";
 import { getBenutzerTyp } from "../apis/AuthFinder";
+import "../styles/BauteilOptionen.css";
 
 const BauteilOptionen = () => {
   const { id } = useParams();
@@ -54,7 +55,7 @@ const BauteilOptionen = () => {
 
   //React Bootstrap bzw. HTML Code für das Ansehen der Information einer Historie
   return (
-    <Container className="shadow border border-light p-1 mt-3" md="auto">
+    <Container className="square border border-1 rounded-3 p-1 mt-0 mb-3" md="auto">
       <Row className="my-3 mx-2">
         <Col>
           <Button
@@ -63,39 +64,51 @@ const BauteilOptionen = () => {
             aria-expanded={open}
             variant="secondary"
             size="md"
+            className="buttonOptionen"
           >
             Historie
-          </Button>
+          </Button> 
         </Col>
-        <Col>
-          {isAuth && userData.benutzertyp === "Handwerker" ? (
-            <Row>
-              <Col>
-                <Button variant="outline-primary" size="md" disabled>
-                  Grundris Abrufen
-                </Button>
-              </Col>
-              <Col>
-                <Button variant="outline-primary" size="md" disabled>
-                  Reparatur Info
-                </Button>
-              </Col>
-              <Col>
-                <Button variant="outline-primary" size="md" disabled>
-                  Montage Info
-                </Button>
-              </Col>
-            </Row>
-          ) : (
-            <></>
-          )}
-        </Col>
+        
+        <><Col>
+            <Button
+              onClick={""}
+              variant="secondary"
+              size="md"
+              className="buttonOptionen ">
+              Grundriss
+            </Button>
+          </Col>
+          <Col>
+              <Button
+                onClick={""}
+                aria-controls="historie-collapse-component"
+                aria-expanded={open}
+                variant="secondary"
+                size="md"
+                className="buttonOptionen ">
+                Reparatur
+              </Button>
+            </Col>
+            <Col>
+              <Button
+                onClick={""}
+                aria-controls="historie-collapse-component"
+                aria-expanded={open}
+                variant="secondary"
+                size="md"
+                className="buttonOptionen">
+                Montage
+              </Button>
+
+            </Col></>
+        
       </Row>
-      <Row className="mx-2 my-1">
-        <Container>
-          <Collapse in={open}>
+      <Row className="mx-2">
+        
+          <Collapse in={open} className="p-1">
             <div id="historie-collapse-component">
-              <Table striped bordered hover>
+              <Table striped bordered hover className="tableContentHistorie mb-3">
                 <thead>
                   <tr className="big-primary">
                     <th scope="col">Typ</th>
@@ -118,10 +131,45 @@ const BauteilOptionen = () => {
               </Table>
             </div>
           </Collapse>
-        </Container>
+        
       </Row>
     </Container>
   );
 };
 
 export default BauteilOptionen;
+/*
+<Col>
+<Button             
+  onClick={""}
+  variant="secondary"
+  size="md"
+  className="buttonOptionen ">
+  Grundrissinformationen
+</Button>
+</Col>
+<Col>
+<Button 
+  onClick={""}
+  aria-controls="historie-collapse-component"
+  aria-expanded={open}
+  variant="secondary"
+  size="md"
+  className="buttonOptionen ">
+  Reparaturinformationen
+</Button>
+</Col>
+<Col>
+<Button 
+  onClick={""}
+  aria-controls="historie-collapse-component"
+  aria-expanded={open}
+  variant="secondary"
+  size="md"
+  className="buttonOptionen">
+  Montageinformationen
+</Button>
+      
+</Col>
+
+*/
