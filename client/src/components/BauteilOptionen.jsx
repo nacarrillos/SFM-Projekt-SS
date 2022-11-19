@@ -69,8 +69,10 @@ const BauteilOptionen = () => {
             Historie
           </Button> 
         </Col>
+        {isAuth && userData.benutzertyp === "Handwerker" ? (
+        <>
         
-        <><Col>
+        <Col>
             <Button
               onClick={""}
               variant="secondary"
@@ -101,7 +103,7 @@ const BauteilOptionen = () => {
                 Montage
               </Button>
 
-            </Col></>
+            </Col></>):(<></>)}
         
       </Row>
       <Row className="mx-2">
