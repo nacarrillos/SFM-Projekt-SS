@@ -7,13 +7,14 @@ import Container from "react-bootstrap/esm/Container";
 const BauteilHome = () => {
   return (
     
-    <Container fluid className="bodyContainer">
-        <div>
-          <BauteilInfo />
-        </div>
+    <Container fluid className="bodyContainer px-3">
         <div>
           <BauteilOptionen />
         </div>
+        <div>
+          <BauteilInfo />
+        </div>
+
     </Container>
     
   );
