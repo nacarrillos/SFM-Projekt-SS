@@ -7,8 +7,8 @@ import Container from "react-bootstrap/Container";
 
 import Nav from "react-bootstrap/Nav";
 import { BauteilContext } from "../context/BauteilContext";
-import "./Navbar.css";
-import "../App.css";
+import "../styles/App.css";
+import "../styles/Navbar.css"
 
 
 //Header Komponent für jeder Seite
