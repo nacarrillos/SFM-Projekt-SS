@@ -12,10 +12,10 @@ import "../components/AdminHome.css";
 
 const AdminHome = () => {
   const { userData } = useContext(BauteilContext);
-  // let navigate = useNavigate();
-  // useEffect(() => {
-  //   if (userData.benutzertyp !== "Admin") navigate("/");
-  // }, [userData.benutzertyp]);
+  let navigate = useNavigate();
+  useEffect(() => {
+    if (userData.benutzertyp !== "Admin") navigate("/");
+  }, [userData.benutzertyp]);
 
   const [options, setOptions] = useState({
     userMngmt: false,

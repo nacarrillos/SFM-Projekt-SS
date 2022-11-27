@@ -73,16 +73,13 @@ const Header = () => {
                     ANMELDUNG
                   </NavLink>
                 )}
-                <NavLink to="/admin" className="navLinkBody">
-                  ADMIN
-                </NavLink>
-                {/* {userData.benutzertyp === "Admin" ? (
+                {userData.benutzertyp === "Admin" ? (
                   <NavLink to="/admin" className="navLinkBody">
                     ADMIN
                   </NavLink>
                 ) : (
                   <></>
-                )} */}
+                )}
                 <NavLink to="/" className="navLinkBody">
                   USER KONTO
                 </NavLink>
