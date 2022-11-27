@@ -72,6 +72,11 @@ router.get("/user/logout", logout);
 router.get("/user/protected", userAuth, protected);
 
 //API für die Registrierung
-router.post("/user/register", registerValidation, register);
+router.post(
+  "/user/register",
+  registerValidation,
+  validationMiddleware,
+  register
+);
 
 module.exports = router;

@@ -1,0 +1,111 @@
+.adminRow {
+  display: flex;
+  padding: 20px;
+  height: 360px;
+  justify-content: left;
+}
+
+.adminOptionsButtonCol {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: start;
+}
+
+.adminOptionsButton {
+  font-size: 1.3em;
+  width: 300px;
+  height: 15rem;
+  background-color: #6c757d;
+  border-radius: 5px;
+  border: none;
+  color: white;
+}
+
+.adminOptionsButton:hover {
+  background-color: #23707d;
+}
+
+.adminOptionsButton:focus {
+  background-color: #23707d;
+}
+
+.userAdministrationOptionsButtonCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+
+.userAdministrationText {
+  border-bottom: solid black;
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.userAdministrationOptionsButton {
+  margin: 1px;
+  font-size: 1.3em;
+  width: 20rem;
+  height: 3rem;
+  background-color: #6c757d;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  margin: 5px;
+}
+
+.userAdministrationOptionsButton:hover {
+  background-color: #23707d;
+}
+
+.userAdministrationOptionsButton:focus {
+  background-color: #23707d;
+}
+
+.componentsAdminCol {
+  display: flex;
+}
+
+.registerButton {
+  background-color: #23707d;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  border-radius: 5px;
+}
+
+.registerButton:hover {
+  opacity: 1;
+}
+
+.userRegistrierungRow {
+  display: flex;
+  direction: row;
+  margin: 5px;
+}
+
+.registrationField {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+.registrationField:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.registrationLabel {
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-align: center;
+}

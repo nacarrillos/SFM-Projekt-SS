@@ -20,7 +20,13 @@ const benutzerExists = check("benutzername").custom(async (value) => {
 
 //Überprüft dass Benutzertyp ein von den erlaubenen Typen ist
 const benutzertypValidation = check("benutzertyp")
-  .isIn(["Besitzer", "Handwerker", "Monteur", "Produktionsmitarbeiter"])
+  .isIn([
+    "Besitzer",
+    "Handwerker",
+    "Monteur",
+    "Produktionsmitarbeiter",
+    "Admin",
+  ])
   .withMessage("Benutzertyp existiert nicht");
 
 //Überprüft sowohl Benutzername als auch das Passwort

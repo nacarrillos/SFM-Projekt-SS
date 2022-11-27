@@ -7,12 +7,14 @@ import "../App.css";
 //Homes des Websites URL
 const Home = () => {
   const { userData } = useContext(BauteilContext);
-  console.log(userData.benutzername);
+  console.log(userData);
   return (
     <Container fluid className="siteContainer">
       <div>
-        <h1 className="text-center">Hierbei handelt es sich um eine Website im Rahmen eines
-        Studienprojekts der Hochschule Esslingen {userData.benutzername}</h1>
+        <h1 className="text-center">
+          Hierbei handelt es sich um eine Website im Rahmen eines
+          Studienprojekts der Hochschule Esslingen {userData.benutzername}
+        </h1>
       </div>
       <div>
         <BauteilSuche />

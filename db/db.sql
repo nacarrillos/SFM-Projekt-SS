@@ -13,7 +13,7 @@ create table benutzer (
     benutzertyp = 'Handwerker' OR benutzertyp = 'Monteur' OR benutzertyp = 'Produktionsmitarbeiter' 
         OR benutzertyp = 'Produktionsmitarbeiter' OR benutzertyp = 'Admin');
     -- Check für Neue Admin
-    insert into benutzer (benutzername, kennwort, benutzertyp) values ('Nicawt00','1234!','Admin');
+    
 
 
 insert into benutzer (benutzername, kennwort, benutzertyp) values ('Kyle','1234!','Handwerker');
