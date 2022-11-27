@@ -6,8 +6,8 @@ import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import { BauteilContext } from "../context/BauteilContext";
-import "./Navbar.css";
-import "../App.css";
+import "../styles/App.css";
+import "../styles/Navbar.css";
 import { NavLink } from "react-router-dom";
 import { render } from "react-dom";
 

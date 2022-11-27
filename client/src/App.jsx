@@ -8,7 +8,7 @@ import Bottom from "./components/Bottom";
 import Navbar from "./components/Navbar";
 import { useSelector } from "react-redux";
 import ProtectedRoute from "./routes/ProtectedRoute";
-import "./App.css";
+import "./styles/App.css";
 import Datenschutz from "./routes/Datenschutz";
 import Impressum from "./routes/Impressum";
 import AdminHome from "./routes/AdminHome";

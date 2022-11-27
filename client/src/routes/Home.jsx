@@ -2,14 +2,14 @@ import React, { useContext } from "react";
 import BauteilSuche from "../components/BauteilSuche";
 import { BauteilContext } from "../context/BauteilContext";
 import Container from "react-bootstrap/esm/Container";
-import "../App.css";
+import "../styles/Body.css";
 
 //Homes des Websites URL
 const Home = () => {
   const { userData } = useContext(BauteilContext);
   console.log(userData);
   return (
-    <Container fluid className="siteContainer">
+    <Container fluid className="bodyContainer">
       <div>
         <h1 className="text-center">
           Hierbei handelt es sich um eine Website im Rahmen eines
