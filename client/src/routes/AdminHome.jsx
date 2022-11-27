@@ -8,7 +8,7 @@ import UserBearbeitung from "../components/UserBearbeitung";
 import UserSperren from "../components/UserSperren";
 import UserLöschen from "../components/UserLöschen";
 import { BauteilContext } from "../context/BauteilContext";
-import "../components/AdminHome.css";
+import "../styles/AdminHome.css";
 
 const AdminHome = () => {
   const { userData } = useContext(BauteilContext);
