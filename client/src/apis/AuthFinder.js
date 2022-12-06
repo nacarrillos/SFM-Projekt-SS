@@ -27,3 +27,12 @@ export async function fetchProtectedInfo() {
 export async function getBenutzerTyp(benutzername) {
   return await axios.get(`/user/benutzertyp/${benutzername}`);
 }
+
+//API zu Backend, um zu fragen on ein User gesperrt ist
+export async function isUserBlocked(benutzername) {
+  return await axios.get(`/user/userblocked/${benutzername}`);
+}
+
+export async function blockUnblockUser(benutzername) {
+  return await axios.put(`/user/blockuser/${benutzername}`);
+}

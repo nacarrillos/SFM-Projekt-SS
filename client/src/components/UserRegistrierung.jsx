@@ -30,9 +30,9 @@ const UserManagement = () => {
       const response = await onRegistration({
         benutzername: userToBeRegister.benutzername,
         kennwort: userToBeRegister.kennwort,
+        kennwortBestätigung: userToBeRegister.kennwortBestätigung,
         benutzertyp: userToBeRegister.benutzertyp,
       });
-      console.log(response);
       setUserRegistered({
         success: true,
         msg: "Benutzer erfolgreich registriert",
@@ -42,7 +42,8 @@ const UserManagement = () => {
       setUserRegistered({ success: false, msg: "" });
       equalPassword
         ? setErrMsg(err.response.data.errors[0])
-        : setErrMsg(err.message);
+        : setErrMsg({ msg: err.message });
+      console.log(errMsg.msg);
     }
   }
   console.log(userToBeRegister);

@@ -27,7 +27,7 @@ const AdminHome = () => {
   });
 
   return (
-    <Container fluid>
+    <Container fluid className="bodyContainer px-3">
       <Row className="adminRow">
         <Col className="adminOptionsButtonCol" md={3}>
           <button
@@ -103,9 +103,9 @@ const AdminHome = () => {
             </Col>
             <Col className="componentsAdminCol">
               {options.userRegistrieren && <UserRegistrierung />}
-              {options.userRegistrieren && <UserBearbeitung />}
-              {options.userRegistrieren && <UserSperren />}
-              {options.userRegistrieren && <UserLöschen />}
+              {options.userBearbeitung && <UserBearbeitung />}
+              {options.userSperren && <UserSperren />}
+              {options.userLöschen && <UserLöschen />}
             </Col>
           </>
         )}

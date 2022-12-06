@@ -13,9 +13,9 @@
 }
 
 .adminOptionsButton {
-  font-size: 1.3em;
-  width: 300px;
-  height: 15rem;
+  font-size: 1.2em;
+  width: 100%;
+  height: 8rem;
   background-color: #6c757d;
   border-radius: 5px;
   border: none;
@@ -41,13 +41,13 @@
   border-bottom: solid black;
   width: 100%;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .userAdministrationOptionsButton {
   margin: 1px;
-  font-size: 1.3em;
-  width: 20rem;
+  font-size: 1em;
+  width: 100%;
   height: 3rem;
   background-color: #6c757d;
   border-radius: 5px;
@@ -71,8 +71,8 @@
 .registerButton {
   background-color: #23707d;
   color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
+  padding: 12px 20px;
+  margin: 8px 0px;
   border: none;
   cursor: pointer;
   width: 100%;
@@ -88,12 +88,13 @@
   display: flex;
   direction: row;
   margin: 5px;
+  align-items: center;
 }
 
 .registrationField {
   width: 100%;
   padding: 15px;
-  margin: 5px 0 22px 0;
+  margin: 5px 0 5px 0;
   display: inline-block;
   border: none;
   background: #f1f1f1;
@@ -104,8 +105,35 @@
   outline: none;
 }
 
+.searchField {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 5px 0;
+  display: inline-block;
+  border: none;
+  background: #d9d9d9;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .registrationLabel {
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 1rem;
   text-align: center;
+}
+
+.searchbutton {
+  background-color: #23707d;
+  color: white;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  border-radius: 5px;
+}
+
+.searchButton:hover {
+  opacity: 1;
 }

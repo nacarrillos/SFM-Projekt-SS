@@ -14,7 +14,12 @@ create table benutzer (
         OR benutzertyp = 'Produktionsmitarbeiter' OR benutzertyp = 'Admin');
     -- Check für Neue Admin
     
-
+    -- Änderung sodass Name, Nachname, Kontakt, Adresse and gesperrt zum Benutzer hinzugefügt werden
+    ALTER TABLE benutzer ADD gesperrt BOOLEAN DEFAULT FALSE
+    ALTER TABLE benutzer ADD Name VARCHAR(20) NOT NULL DEFAULT 'Name'
+    ALTER TABLE benutzer ADD Nachname VARCHAR(20) NOT NULL DEFAULT 'Nachname'
+    ALTER TABLE benutzer ADD Kontakt VARCHAR(20) NOT NULL DEFAULT '00000000'
+    ALTER TABLE benutzer ADD Adresse VARCHAR(100) NOT NULL DEFAULT 'Muster Adresse' 
 
 insert into benutzer (benutzername, kennwort, benutzertyp) values ('Kyle','1234!','Handwerker');
 
