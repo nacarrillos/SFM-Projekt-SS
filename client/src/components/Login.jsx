@@ -42,7 +42,7 @@ const Login = () => {
         benutzername,
         benutzertyp,
       });
-      console.log(benutzertyp);
+      console.log(userData);
     } catch (err) {
       setErrMsg(err.response.data.errors[0]);
       console.error(err.message);

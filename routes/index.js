@@ -4,7 +4,11 @@ const { register, login, logout, protected } = require("../controllers/auth");
 const router = express.Router();
 const db = require("../db");
 const { validationMiddleware } = require("../middleware/validation-middleware");
-const { registerValidation, loginValidation } = require("../validators");
+const {
+  registerValidation,
+  loginValidation,
+  searchValidation,
+} = require("../validators");
 const { userAuth } = require("../middleware/auth-middleware");
 
 //API für den Abruf von Information aus einem Bauteil durch ID
@@ -72,6 +76,72 @@ router.get("/user/logout", logout);
 router.get("/user/protected", userAuth, protected);
 
 //API für die Registrierung
-router.post("/user/register", registerValidation, register);
+router.post(
+  "/user/register",
+  registerValidation,
+  validationMiddleware,
+  register
+);
+
+router.get(
+  "/user/userblocked/:benutzername",
+  searchValidation,
+  validationMiddleware,
+  async (req, res) => {
+    try {
+      const benutzername = req.params.benutzername;
+      const results = await db.query(
+        "select gesperrt from benutzer where benutzername=$1",
+        [benutzername]
+      );
+      res.status(200).json({
+        status: "success",
+        data: {
+          blocked: results.rows[0].gesperrt,
+        },
+      });
+    } catch (err) {
+      console.error(err.message);
+    }
+  }
+);
+
+router.put("/user/blockuser/:benutzername", async (req, res) => {
+  try {
+    const benutzername = req.params.benutzername;
+    const { rows } = await db.query(
+      "select * from benutzer where benutzername=$1",
+      [benutzername]
+    );
+    if (rows[0].gesperrt) {
+      await db.query(
+        "UPDATE benutzer SET gesperrt=false WHERE benutzername=$1",
+        [benutzername]
+      );
+      return res.status(200).json({
+        success: true,
+        user: benutzername,
+        blocked: !rows[0].gesperrt,
+        message: "User entsperrt!",
+      });
+    } else {
+      await db.query(
+        "UPDATE benutzer SET gesperrt=true WHERE benutzername=$1",
+        [benutzername]
+      );
+      return res.status(200).json({
+        success: true,
+        user: benutzername,
+        blocked: !rows[0].gesperrt,
+        message: "User gesperrt!",
+      });
+    }
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+});
 
 module.exports = router;

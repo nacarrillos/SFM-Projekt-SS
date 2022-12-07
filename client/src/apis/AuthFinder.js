@@ -2,13 +2,10 @@ import axios from "axios";
 //So dass wir mit Cookies arbeiten können und das Server die Token erhält
 axios.defaults.withCredentials = true;
 
-//Wenn wir einmal Registrierung über Frontend benutzen
-// export async function onRegistration(registrationData) {
-//   return await axios.post(
-//     "http://localhost:4000/user/register",
-//     registrationData
-//   );
-// }
+//API zu Backend für die Registrierung eines Benutzer
+export async function onRegistration(registrationData) {
+  return await axios.post("/user/register", registrationData);
+}
 
 //API zu Backend für eine Loginrequest
 export async function onLogin(loginData) {
@@ -29,4 +26,13 @@ export async function fetchProtectedInfo() {
 //API zu Backend, um Typ des Benutzers abzurufen
 export async function getBenutzerTyp(benutzername) {
   return await axios.get(`/user/benutzertyp/${benutzername}`);
+}
+
+//API zu Backend, um zu fragen on ein User gesperrt ist
+export async function isUserBlocked(benutzername) {
+  return await axios.get(`/user/userblocked/${benutzername}`);
+}
+
+export async function blockUnblockUser(benutzername) {
+  return await axios.put(`/user/blockuser/${benutzername}`);
 }

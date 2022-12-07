@@ -12,7 +12,7 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import "./styles/App.css";
 import Datenschutz from "./routes/Datenschutz";
 import Impressum from "./routes/Impressum";
-
+import AdminHome from "./routes/AdminHome";
 //Wenn private Routes getriggert werden wird erst geprüft ob der Benutzer aunthentifiziert ist, ansonsten wird zu Login Page geführt
 const PrivateRoutes = () => {
   const { isAuth } = useSelector((state) => state.auth);
@@ -31,10 +31,10 @@ const RestrictedRoutes = () => {
 // und zuletzt das "Botton" Bar. Hier werden unter Private oder Restricted Routers die ausgewählte Routes platziert
 const App = () => {
   return (
-    <BauteilContextProvider className ="App">
-      <div className ="App">
-        <Navbar />
+    <BauteilContextProvider className="App">
+      <div className="App">
         <Router>
+          <Navbar />
           <Routes>
             <Route exact path="/" element={<HomeBaugruppen />} />
             <Route exact path="/Aufbau" element={<HomeAufbau/>}/>
@@ -43,14 +43,15 @@ const App = () => {
             <Route exact path="/bauteil/:id" element={<BauteilHome />} />
             <Route element={<PrivateRoutes />}>
               <Route path="/protected" element={<ProtectedRoute />} />
+              <Route exact path="/admin" element={<AdminHome />} />
             </Route>
             <Route element={<RestrictedRoutes />}>
               <Route exact path="/login" element={<LoginPage />} />
             </Route>
+            {/* <Route path='*' element={<Error/>}/> muss noch gemacht werden*/}
           </Routes>
+          <Bottom />
         </Router>
-        
-        <Bottom />
       </div>
     </BauteilContextProvider>
   );
