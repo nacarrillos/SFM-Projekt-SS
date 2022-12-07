@@ -2,7 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navigate, Outlet } from "react-router-dom";
 import { BauteilContextProvider } from "./context/BauteilContext";
 import BauteilHome from "./routes/BauteilHome";
-import Home from "./routes/Home";
+import HomeBaugruppen from "./routes/HomeBaugruppen";
+import HomeAufbau from "./routes/HomeAufbau";
 import LoginPage from "./routes/LoginPage";
 import Bottom from "./components/Bottom";
 import Navbar from "./components/Navbar";
@@ -35,7 +36,8 @@ const App = () => {
         <Navbar />
         <Router>
           <Routes>
-            <Route exact path="/" element={<Home />} />
+            <Route exact path="/" element={<HomeBaugruppen />} />
+            <Route exact path="/Aufbau" element={<HomeAufbau/>}/>
             <Route exact path="/Datenschutz" element={<Datenschutz />} />
             <Route exact path="/Impressum" element={<Impressum />} />
             <Route exact path="/bauteil/:id" element={<BauteilHome />} />

@@ -6,6 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
 
 const BauteilSuche = () => {
   const [bauteilId, setBauteilId] = useState("");
@@ -26,36 +27,54 @@ const BauteilSuche = () => {
 
   //React Bootstrap bzw. HTML Code für das Ansehen der suchfeld für Bauteile auf dem Home
   return (
-    <Container>
-      <Row className="justify-content-md-center" md={2}>
-        <Form>
-          <Form.Group className="my-4" controlId="ControlId">
-            <Row className="d-flex justify-content-center align-items-center">
-              <Col /**/className="mb-2">
-                <Form.Control
-                  size="lg"
-                  value={bauteilId}
-                  onChange={(e) => setBauteilId(e.target.value)}
-                  type="number"
-                  placeholder="Enter BauteilID"
-                  required
-                />
-              </Col>
-              <Col sm={1} className="mb-2">
-                <Button
-                  onClick={(e) => handleSuche(e, bauteilId)}
-                  type="submit"
-                  className="btn btn-primary"
-                  size="lg"
-                >
-                  Suchen
-                </Button>
-              </Col>
+        <Row className="mx-0 mt-2 mb-4">
+          <Col>
+          <Card className="h-100 mx-1 ">
+            <Card.Header className="text-center border" as="h4">
+              Teilesuche
+            </Card.Header>
+            <Card.Body className="pt-4 ">
+              <Row mx-2 md={3}>                
+                <Col className="mb-2">
+                  <Form.Group  controlId="formGridState">
+                    <Form.Select 
+                      size="md"
+                      >
+                      <option>Typ</option>
+                      <option>Bauteil</option>
+                      <option>Einzelteil</option>
+                    </Form.Select>
+                  </Form.Group>
+                </Col>
+                <Col /**/className="mb-2">
+                  <Form.Control
+                    size="md"
+                    value={bauteilId}
+                    onChange={(e) => setBauteilId(e.target.value)}
+                    type="number"
+                    placeholder="ID"
+                    required
+                  />
+                </Col>
+                <Col sm={1} className="mb-2">
+                  <Button
+                    onClick={(e) => handleSuche(e, bauteilId)}
+                    type="submit"
+                    className="btn btn-primary"
+                    size="md"
+                  >
+                    Suchen
+                  </Button>
+                </Col>
             </Row>
-          </Form.Group>
-        </Form>
-      </Row>
-    </Container>
+
+        </Card.Body>
+              </Card>
+              </Col>
+        </Row>
+        
+      
+   
   );
 };
 
