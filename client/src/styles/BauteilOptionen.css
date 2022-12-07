@@ -9,12 +9,28 @@
 
   }
 
+  .rowTableContentHistorie{
+    justify-content: left !important;
+    margin-left: 0.5rem  !important;
+    margin-right: 0px !important;
+    transform: scale(0.84);/*0.84*/
+  }
+
   .tableContentHistorie{
     background-color: red !important;
-    transform: scale(0.84);
+    
+    
   }
 
 
+}
+
+@media screen and (min-width: 852px) {
+  .rowTableContentHistorie{
+    margin-left: 0.5rem !important;
+    margin-right: 0.5rem  !important;
+  }
+  
 }
 
 

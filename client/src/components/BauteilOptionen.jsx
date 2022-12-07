@@ -106,9 +106,9 @@ const BauteilOptionen = () => {
             </Col></>):(<></>)}
         
       </Row>
-      <Row className="mx-2">
+      <Row className="rowTableContentHistorie">{/*mx-2 */}
         
-          <Collapse in={open} className="p-1">
+          <Collapse in={open} className="py-0">
             <div id="historie-collapse-component">
               <Table striped bordered hover className="tableContentHistorie mb-3">
                 <thead>
