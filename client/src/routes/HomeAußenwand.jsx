@@ -5,14 +5,13 @@ import Container from "react-bootstrap/esm/Container";
 import "../styles/Body.css";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
-
-import AufbauUebersicht from "../components/AufbauUebersicht";
 import HomeBaugruppenBild from "../components/HomeBaugruppenBild";
+import AußenwandUebersicht from "../components/AußenwandUebersicht";
 
 
 
 //Homes des Websites URL
-const HomeAufbau = () => {
+const HomeAußenwand = () => {
   const { userData } = useContext(BauteilContext);
   console.log(userData.benutzername);
   return (
@@ -26,7 +25,8 @@ const HomeAufbau = () => {
         <Col className="square border border-1 rounded-3 p-1">
           <BauteilSuche/>
           
-          <AufbauUebersicht/>
+          <AußenwandUebersicht/>
+          
         
         </Col>
       
@@ -41,4 +41,4 @@ const HomeAufbau = () => {
   );
 };
 
-export default HomeAufbau;
+export default HomeAußenwand;
