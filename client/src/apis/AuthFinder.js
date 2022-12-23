@@ -36,3 +36,7 @@ export async function isUserBlocked(benutzername) {
 export async function blockUnblockUser(benutzername) {
   return await axios.put(`/user/blockuser/${benutzername}`);
 }
+
+export async function deleteUser(benutzername) {
+  return await axios.delete(`/user/deleteuser/${benutzername}`);
+}

@@ -51,7 +51,7 @@ const UserSperren = () => {
 
   return (
     <Container>
-      <h1 className="userAdministrationText">User Sperren</h1>
+      <h1 className="userAdministrationText">User Sperren / Entsperren</h1>
       <form>
         <Alert
           className="p-0"

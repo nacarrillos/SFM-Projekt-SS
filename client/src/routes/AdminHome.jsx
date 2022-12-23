@@ -84,7 +84,7 @@ const AdminHome = () => {
                   })
                 }
               >
-                User Sperren
+                User Sperren / Entsperren
               </button>
               <button
                 className="userAdministrationOptionsButton"

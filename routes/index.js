@@ -144,4 +144,23 @@ router.put("/user/blockuser/:benutzername", async (req, res) => {
   }
 });
 
+router.delete("/user/deleteuser/:benutzername", async (req, res) => {
+  try {
+    const benutzername = req.params.benutzername;
+    await db.query("DELETE FROM benutzer WHERE benutzername=$1", [
+      benutzername,
+    ]);
+    return res.status(200).json({
+      success: true,
+      user: benutzername,
+      message: "User gelöscht!",
+    });
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+});
+
 module.exports = router;
