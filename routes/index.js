@@ -83,6 +83,7 @@ router.post(
   register
 );
 
+//API um das Status der Sperrung eines benutzer zu prüfen
 router.get(
   "/user/userblocked/:benutzername",
   searchValidation,
@@ -106,6 +107,7 @@ router.get(
   }
 );
 
+//API um ein User zu sperren bzw. entsperren
 router.put("/user/blockuser/:benutzername", async (req, res) => {
   try {
     const benutzername = req.params.benutzername;
@@ -144,6 +146,7 @@ router.put("/user/blockuser/:benutzername", async (req, res) => {
   }
 });
 
+//API um ein User zu löschen, wenn der User schon Aufgabe erledigt hat wird ein Fehler erzeugt werden
 router.delete("/user/deleteuser/:benutzername", async (req, res) => {
   try {
     const benutzername = req.params.benutzername;
@@ -154,6 +157,56 @@ router.delete("/user/deleteuser/:benutzername", async (req, res) => {
       success: true,
       user: benutzername,
       message: "User gelöscht!",
+    });
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+});
+
+//API um die komplette Information eines benutzer zu bekommen
+router.get("/user/getdata/:benutzername", async (req, res) => {
+  try {
+    const benutzername = req.params.benutzername;
+    const { rows } = await db.query(
+      "SELECT * FROM benutzer WHERE benutzername=$1",
+      [benutzername]
+    );
+    console.log(rows[0]);
+
+    return res.status(200).json({
+      success: true,
+      benutzername: rows[0].benutzername,
+      benutzertyp: rows[0].benutzertyp,
+      name: rows[0].name,
+      nachname: rows[0].nachname,
+      kontakt: rows[0].kontakt,
+      adresse: rows[0].adresse,
+      message: "Information des Users erhalten!",
+    });
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+});
+
+//API um die Daten eines Benutzer zu editieren
+router.put("/user/edituser/:benutzername", async (req, res) => {
+  try {
+    const { benutzername, benutzertyp, name, nachname, kontakt, adresse } =
+      req.body;
+    console.log(benutzername, benutzertyp, name, nachname, kontakt, adresse);
+    await db.query(
+      "UPDATE benutzer SET benutzername=$1, benutzertyp=$2, name=$3, nachname=$4, kontakt=$5, adresse=$6  WHERE benutzername=$1",
+      [benutzername, benutzertyp, name, nachname, kontakt, adresse]
+    );
+    return res.status(200).json({
+      success: true,
+      message: "User erfolgreich bearbeitet",
     });
   } catch (error) {
     console.error(error.message);

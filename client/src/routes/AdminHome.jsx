@@ -103,7 +103,7 @@ const AdminHome = () => {
             </Col>
             <Col className="componentsAdminCol">
               {options.userRegistrieren && <UserRegistrierung />}
-              {options.userBearbeitung && <UserBearbeitung />}
+              {options.userBearbeiten && <UserBearbeitung />}
               {options.userSperren && <UserSperren />}
               {options.userLöschen && <UserLöschen />}
             </Col>

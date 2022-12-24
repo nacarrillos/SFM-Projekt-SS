@@ -40,3 +40,11 @@ export async function blockUnblockUser(benutzername) {
 export async function deleteUser(benutzername) {
   return await axios.delete(`/user/deleteuser/${benutzername}`);
 }
+
+export async function getUserData(benutzername) {
+  return await axios.get(`/user/getdata/${benutzername}`);
+}
+
+export async function editUserData(userData) {
+  return await axios.put(`/user/edituser/${userData.benutzername}`, userData);
+}
