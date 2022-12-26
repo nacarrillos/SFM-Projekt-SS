@@ -68,7 +68,7 @@
   display: flex;
 }
 
-.registerButton {
+.adminUserButton {
   background-color: #23707d;
   color: white;
   padding: 12px 20px;
@@ -80,18 +80,18 @@
   border-radius: 5px;
 }
 
-.registerButton:hover {
+.adminUserButton:hover {
   opacity: 1;
 }
 
-.userRegistrierungRow {
+.adminUserRow {
   display: flex;
   direction: row;
   margin: 5px;
   align-items: center;
 }
 
-.registrationField {
+.adminInputField {
   width: 100%;
   padding: 15px;
   margin: 5px 0 5px 0;
@@ -100,7 +100,7 @@
   background: #f1f1f1;
 }
 
-.registrationField:focus {
+.adminInputField:focus {
   background-color: #ddd;
   outline: none;
 }
@@ -117,7 +117,7 @@
   text-transform: uppercase;
 }
 
-.registrationLabel {
+.adminInputLabel {
   font-weight: bold;
   font-size: 1rem;
   text-align: center;
@@ -136,4 +136,30 @@
 
 .searchButton:hover {
   opacity: 1;
+}
+
+.passwordRectangle {
+  padding: 5px;
+  background-color: rgba(35, 112, 125, 0.3);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  border-color: black;
+  border-bottom: solid;
+}
+
+.passwordResetButton {
+  background-color: #23707d;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 200px;
+  opacity: 0.9;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-left: 20px;
+  padding: 5px;
 }

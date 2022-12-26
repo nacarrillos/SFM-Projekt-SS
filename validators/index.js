@@ -64,4 +64,5 @@ module.exports = {
   registerValidation: [kennwort, benutzerExists, benutzertypValidation],
   loginValidation: [loginFieldsCheck],
   searchValidation: [benutzerNotFound],
+  passwordChangeValidation: [kennwort],
 };

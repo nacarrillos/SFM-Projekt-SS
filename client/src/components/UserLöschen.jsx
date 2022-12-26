@@ -78,15 +78,15 @@ const UserLöschen = () => {
             </Col>
           </Row>
         </Alert>
-        <Row className="userRegistrierungRow">
+        <Row className="adminUserRow">
           <Row>
-            <label className="registrationLabel" htmlFor="inputBenutzerName">
+            <label className="adminInputLabel" htmlFor="inputBenutzerName">
               Benutzername
             </label>
           </Row>
           <Row>
             <input
-              className="registrationField"
+              className="adminInputField"
               type="text"
               placeholder=""
               onChange={(e) => {
@@ -98,8 +98,8 @@ const UserLöschen = () => {
             />
           </Row>
         </Row>
-        <Row className="userRegistrierungRow">
-          <button className="registerButton" onClick={handleUserDelete}>
+        <Row className="adminUserRow">
+          <button className="adminUserButton" onClick={handleUserDelete}>
             User Löschen
           </button>
         </Row>

@@ -48,3 +48,10 @@ export async function getUserData(benutzername) {
 export async function editUserData(userData) {
   return await axios.put(`/user/edituser/${userData.benutzername}`, userData);
 }
+
+export async function resetPasswordAdmin(userData) {
+  return await axios.put(
+    `/user/changepassword/${userData.benutzername}`,
+    userData
+  );
+}

@@ -1,4 +1,8 @@
-import { editUserData, getUserData } from "../apis/AuthFinder";
+import {
+  editUserData,
+  getUserData,
+  resetPasswordAdmin,
+} from "../apis/AuthFinder";
 import { useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -8,7 +12,7 @@ import Container from "react-bootstrap/Container";
 const UserBearbeitung = () => {
   const [userToBeEdited, setUserToBeEdited] = useState({
     benutzername: "",
-    kennwortReset: false,
+    kennwort: "",
     benutzertyp: "",
     name: "",
     nachname: "",
@@ -19,6 +23,7 @@ const UserBearbeitung = () => {
   });
 
   const [errMsg, setErrMsg] = useState("");
+  const [userFound, setUserFound] = useState(false);
 
   async function handleUserSearch(e) {
     e.preventDefault();
@@ -35,19 +40,43 @@ const UserBearbeitung = () => {
         message: "",
         success: false,
       });
+      setUserFound(true);
     } catch (err) {
       setErrMsg("Benutzer wurde nicht gefunden");
       setUserToBeEdited({
         benutzername: "",
-        kennwortReset: false,
         benutzertyp: "",
         name: "",
         nachname: "",
         kontakt: "",
         adresse: "",
-        msg: errMsg,
         success: false,
       });
+      setUserFound(false);
+    }
+  }
+
+  async function handlePasswortReset(e) {
+    e.preventDefault();
+    try {
+      const response = await resetPasswordAdmin({
+        benutzername: userToBeEdited.benutzername,
+        kennwort: userToBeEdited.kennwort,
+      });
+      setUserToBeEdited({
+        ...userToBeEdited,
+        msg: response.data.message,
+        success: true,
+      });
+      setErrMsg("");
+    } catch (err) {
+      console.log(err.response.data.errors[0].msg);
+      setUserToBeEdited({
+        ...userToBeEdited,
+        success: false,
+        msg: err.response.data.errors[0].msg,
+      });
+      setErrMsg(err.response.data.errors[0].msg);
     }
   }
 
@@ -68,7 +97,7 @@ const UserBearbeitung = () => {
         success: true,
       });
       setErrMsg("");
-      console.log(userToBeEdited);
+      setUserFound(false);
     } catch (err) {
       setUserToBeEdited({
         ...userToBeEdited,
@@ -123,16 +152,16 @@ const UserBearbeitung = () => {
             </Col>
           </Row>
         </Alert>
-        <Row className="userRegistrierungRow">
+        <Row className="adminUserRow">
           <Col md={8}>
             <Row>
-              <label className="registrationLabel" htmlFor="inputBenutzerName">
+              <label className="adminInputLabel" htmlFor="inputBenutzerName">
                 Benutzername
               </label>
             </Row>
             <Row>
               <input
-                className="registrationField"
+                className="adminInputField"
                 type="text"
                 placeholder=""
                 onChange={(e) => {
@@ -149,13 +178,36 @@ const UserBearbeitung = () => {
               Suchen
             </button>
           </Col>
+          {userFound ? (
+            <div className="passwordRectangle">
+              <input
+                type="password"
+                placeholder="Neues Passwort"
+                className="adminInputField"
+                onChange={(e) => {
+                  setUserToBeEdited({
+                    ...userToBeEdited,
+                    kennwort: e.target.value,
+                  });
+                }}
+              />
+              <button
+                className="passwordResetButton"
+                onClick={handlePasswortReset}
+              >
+                Passwort ändern
+              </button>
+            </div>
+          ) : (
+            <></>
+          )}
           <Row>
             <Col>
-              <label className="registrationLabel" htmlFor="benutzertyp">
+              <label className="adminInputLabel" htmlFor="benutzertyp">
                 Benutzertyp
               </label>
               <select
-                className="registrationField"
+                className="adminInputField"
                 id="benutzertyp"
                 name="benutzertyp"
                 onChange={(e) => {
@@ -176,11 +228,11 @@ const UserBearbeitung = () => {
               </select>
             </Col>
             <Col>
-              <label className="registrationLabel" htmlFor="inputName">
+              <label className="adminInputLabel" htmlFor="inputName">
                 Name
               </label>
               <input
-                className="registrationField"
+                className="adminInputField"
                 type="text"
                 defaultValue={userToBeEdited.name}
                 onChange={(e) => {
@@ -194,11 +246,11 @@ const UserBearbeitung = () => {
           </Row>
           <Row>
             <Col>
-              <label className="registrationLabel" htmlFor="inputNachname">
+              <label className="adminInputLabel" htmlFor="inputNachname">
                 Nachname
               </label>
               <input
-                className="registrationField"
+                className="adminInputField"
                 type="text"
                 defaultValue={userToBeEdited.nachname}
                 onChange={(e) => {
@@ -210,11 +262,11 @@ const UserBearbeitung = () => {
               />
             </Col>
             <Col>
-              <label className="registrationLabel" htmlFor="inputKontakt">
+              <label className="adminInputLabel" htmlFor="inputKontakt">
                 Kontakt
               </label>
               <input
-                className="registrationField"
+                className="adminInputField"
                 type="text"
                 defaultValue={userToBeEdited.kontakt}
                 onChange={(e) => {
@@ -227,13 +279,13 @@ const UserBearbeitung = () => {
             </Col>
           </Row>
           <Row>
-            <label className="registrationLabel" htmlFor="inputAdresse">
+            <label className="adminInputLabel" htmlFor="inputAdresse">
               Adresse
             </label>
           </Row>
           <Row>
             <input
-              className="registrationField"
+              className="adminInputField"
               type="text"
               defaultValue={userToBeEdited.adresse}
               onChange={(e) => {
@@ -245,9 +297,9 @@ const UserBearbeitung = () => {
             />
           </Row>
         </Row>
-        <Row className="userRegistrierungRow">
-          <button className="registerButton" onClick={handleUserEditing}>
-            User Bearbeiten
+        <Row className="adminUserRow">
+          <button className="adminUserButton" onClick={handleUserEditing}>
+            Änderungen speichern
           </button>
         </Row>
       </form>

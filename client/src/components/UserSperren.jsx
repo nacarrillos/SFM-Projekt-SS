@@ -93,16 +93,16 @@ const UserSperren = () => {
             </Col>
           </Row>
         </Alert>
-        <Row className="userRegistrierungRow">
+        <Row className="adminUserRow">
           <Col md={6}>
             <Row>
-              <label className="registrationLabel" htmlFor="inputBenutzerName">
+              <label className="adminInputLabel" htmlFor="inputBenutzerName">
                 Benutzername
               </label>
             </Row>
             <Row>
               <input
-                className="registrationField"
+                className="adminInputField"
                 type="text"
                 placeholder=""
                 onChange={(e) => {
@@ -121,7 +121,7 @@ const UserSperren = () => {
           </Col>
           <Col md={3}>
             <Row>
-              <label className="registrationLabel" htmlFor="inputBenutzerName">
+              <label className="adminInputLabel" htmlFor="inputBenutzerName">
                 Status
               </label>
             </Row>
@@ -135,8 +135,8 @@ const UserSperren = () => {
             </Row>
           </Col>
         </Row>
-        <Row className="userRegistrierungRow">
-          <button className="registerButton" onClick={handleUserBlock}>
+        <Row className="adminUserRow">
+          <button className="adminUserButton" onClick={handleUserBlock}>
             User Sperren / Entsperren
           </button>
         </Row>

@@ -8,8 +8,10 @@ const {
   registerValidation,
   loginValidation,
   searchValidation,
+  passwordChangeValidation,
 } = require("../validators");
 const { userAuth } = require("../middleware/auth-middleware");
+const { hash } = require("bcryptjs");
 
 //API für den Abruf von Information aus einem Bauteil durch ID
 router.get("/api/:id", async (req, res) => {
@@ -199,7 +201,6 @@ router.put("/user/edituser/:benutzername", async (req, res) => {
   try {
     const { benutzername, benutzertyp, name, nachname, kontakt, adresse } =
       req.body;
-    console.log(benutzername, benutzertyp, name, nachname, kontakt, adresse);
     await db.query(
       "UPDATE benutzer SET benutzername=$1, benutzertyp=$2, name=$3, nachname=$4, kontakt=$5, adresse=$6  WHERE benutzername=$1",
       [benutzername, benutzertyp, name, nachname, kontakt, adresse]
@@ -215,5 +216,30 @@ router.put("/user/edituser/:benutzername", async (req, res) => {
     });
   }
 });
+
+router.put(
+  "/user/changepassword/:benutzername",
+  passwordChangeValidation,
+  validationMiddleware,
+  async (req, res) => {
+    try {
+      const { benutzername, kennwort } = req.body;
+      const hashedPassword = await hash(kennwort, 10);
+      await db.query(
+        "UPDATE benutzer SET benutzername=$1, kennwort=$2 WHERE benutzername=$1",
+        [benutzername, hashedPassword]
+      );
+      return res.status(200).json({
+        success: true,
+        message: "Passwort erfolgreich geändert",
+      });
+    } catch (error) {
+      console.error(error.message);
+      return res.status(500).json({
+        error: error.message,
+      });
+    }
+  }
+);
 
 module.exports = router;

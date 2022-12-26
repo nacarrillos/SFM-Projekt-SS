@@ -92,12 +92,12 @@ const UserManagement = () => {
             </Col>
           </Row>
         </Alert>
-        <Row className="userRegistrierungRow">
-          <label className="registrationLabel" htmlFor="inputBenutzerName">
+        <Row className="adminUserRow">
+          <label className="adminInputLabel" htmlFor="inputBenutzerName">
             Benutzername
           </label>
           <input
-            className="registrationField"
+            className="adminInputField"
             type="text"
             placeholder=""
             onChange={(e) => {
@@ -108,13 +108,13 @@ const UserManagement = () => {
             }}
           />
         </Row>
-        <Row className="userRegistrierungRow">
+        <Row className="adminUserRow">
           <Col>
-            <label className="registrationLabel" htmlFor="inputKennwort">
+            <label className="adminInputLabel" htmlFor="inputKennwort">
               Kennwort
             </label>
             <input
-              className="registrationField"
+              className="adminInputField"
               type="password"
               placeholder=""
               onChange={(e) => {
@@ -127,13 +127,13 @@ const UserManagement = () => {
           </Col>
           <Col>
             <label
-              className="registrationLabel"
+              className="adminInputLabel"
               htmlFor="inputKennwortBestätigung"
             >
               Kennwort Wiederholen
             </label>
             <input
-              className="registrationField"
+              className="adminInputField"
               type="password"
               placeholder=""
               onChange={(e) => {
@@ -145,12 +145,12 @@ const UserManagement = () => {
             />
           </Col>
         </Row>
-        <Row className="userRegistrierungRow">
-          <label className="registrationLabel" htmlFor="benutzertyp">
+        <Row className="adminUserRow">
+          <label className="adminInputLabel" htmlFor="benutzertyp">
             Welcher Benutzertyp?
           </label>
           <select
-            className="registrationField"
+            className="adminInputField"
             id="benutzertyp"
             name="benutzertyp"
             onChange={(e) => {
@@ -170,8 +170,8 @@ const UserManagement = () => {
             <option value="Besitzer">Besitzer</option>
           </select>
         </Row>
-        <Row className="userRegistrierungRow">
-          <button className="registerButton" onClick={handleUserRegistrierung}>
+        <Row className="adminUserRow">
+          <button className="adminUserButton" onClick={handleUserRegistrierung}>
             User Registrierung
           </button>
         </Row>
