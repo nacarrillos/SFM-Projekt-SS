@@ -49,6 +49,9 @@ const loginFieldsCheck = check("benutzername").custom(
     if (!benutzer.rows.length) {
       throw new Error("Benutzername nicht vorhanden");
     }
+    if (benutzer.rows[0].gesperrt === true) {
+      throw new Error("Benutzer gesppert, bitte Administrator kontaktieren");
+    }
     const validPassword = await compare(
       req.body.kennwort,
       benutzer.rows[0].kennwort
