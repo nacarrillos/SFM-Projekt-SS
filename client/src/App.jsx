@@ -13,6 +13,8 @@ import "./styles/App.css";
 import Datenschutz from "./routes/Datenschutz";
 import Impressum from "./routes/Impressum";
 import AdminHome from "./routes/AdminHome";
+import HomeAußenwand from "./routes/HomeAußenwand";
+import HomeBauteilAußenwand from "./routes/HomeBauteilAußenwand";
 //Wenn private Routes getriggert werden wird erst geprüft ob der Benutzer aunthentifiziert ist, ansonsten wird zu Login Page geführt
 const PrivateRoutes = () => {
   const { isAuth } = useSelector((state) => state.auth);
@@ -37,9 +39,11 @@ const App = () => {
           <Navbar />
           <Routes>
             <Route exact path="/" element={<HomeBaugruppen />} />
-            <Route exact path="/Aufbau" element={<HomeAufbau/>}/>
-            <Route exact path="/Datenschutz" element={<Datenschutz />} />
-            <Route exact path="/Impressum" element={<Impressum />} />
+            <Route  exact path="/aufbau" element={<HomeAufbau/>}/>
+            <Route exact path="/aufbau/aussenwand" element={<HomeAußenwand/>}/>
+            <Route exact path="/aufbau/aussenwand/:id" element={<HomeBauteilAußenwand/>}/>
+            <Route exact path="/datenschutz" element={<Datenschutz />} />
+            <Route exact path="/impressum" element={<Impressum />} />
             <Route exact path="/bauteil/:id" element={<BauteilHome />} />
             <Route element={<PrivateRoutes />}>
               <Route path="/protected" element={<ProtectedRoute />} />

@@ -6,31 +6,24 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { useNavigate } from "react-router-dom";
 import { ArrowLeftSquareFill  } from 'react-bootstrap-icons';
 
-
 //Function, um Information eines Bauteiles aus dem Backend zu lesen und zu Render mit dem React Bootstrap
-const AufbauUebersicht = (props) => {
+const BauteilAußenwandUebersicht = (props) => {
 
   let navigate = useNavigate();
 
   const handleSuche = (e) => {
     e.preventDefault();
-    console.log(e.target.textContent)
-    
     try {
-      if(e.target.textContent === "01.01 - Außenwand") {
+      if(e.target.textContent === "01.01.017 - Außenwand 1") {
         navigate(`/aufbau/aussenwand`);
-      } else if (e.target.textContent === "01.02 - Innenwand") {
+      } else if (e.target.textContent === "01.01.018 - Außenwand 2") {
           navigate(`/aufbau/innenwand`);
-      } else if (e.target.textContent ===  "01.03 - Fußboden") {
+      } else if (e.target.textContent === "01.01.018 - Außenwand 3") {
           navigate(`/aufbau/fußboden`);
-      } else if(e.target.textContent === "01.04 - Dach") {
+      } else if(e.target.textContent === "01.01.018 - Außenwand 4") {
           navigate(`/aufbau/dach`);
-      } else if (e.target.textContent === "01.05 - Fenster") {
-          navigate(`/aufbau/fenster`);
-      } else if (e.target.textContenta === "01.06 - Tür") {
-          navigate(`/aufbau/tür`);
-      }  else if (e.target.textContent === " Baugruppen") {
-        navigate(`/`);
+      }  else if (e.target.textContent === " Bauteile Außenwand") {
+        navigate(`/aufbau/aussenwand`);
       } else {}
       
     } catch (err) {
@@ -46,31 +39,22 @@ const AufbauUebersicht = (props) => {
         <Col>
           <Card className="h-100 mx-1">
             <Card.Header className="text-center border" as="h4">
-              Teilegruppen
+              Einzelteile
             </Card.Header>
             <Card.Body className="p-0 ">
             <ListGroup className="rounded-0 ">
               
               <ListGroup.Item action onClick={(e) => handleSuche(e)}>
-                01.01 - Außenwand
+                01.01.017.001 - Holzfassade
               </ListGroup.Item>
               <ListGroup.Item action onClick={(e) => handleSuche(e)}>
-                 01.02 - Innenwand
+                01.01.017.002 - Lattung
               </ListGroup.Item>
               <ListGroup.Item action onClick={(e) => handleSuche(e)}>
-                  01.03 - Fußboden
+                01.01.017.003 - Unterdeckplatte
               </ListGroup.Item>
               <ListGroup.Item action onClick={(e) => handleSuche(e)}>
-                  01.04 - Dach
-              </ListGroup.Item>
-              <ListGroup.Item action onClick={(e) => handleSuche(e)}>
-                  01.05 - Fenster
-              </ListGroup.Item>
-              <ListGroup.Item action onClick={(e) => handleSuche(e)}>
-                  01.06 - Tür
-              </ListGroup.Item>
-              <ListGroup.Item action onClick={(e) => handleSuche(e)}>
-                <ArrowLeftSquareFill color="grey" size={22} /> Baugruppen
+              <ArrowLeftSquareFill color="grey" size={22} /> Bauteile Außenwand
               </ListGroup.Item>
 
 
@@ -83,4 +67,4 @@ const AufbauUebersicht = (props) => {
   );
 };
 
-export default AufbauUebersicht;
+export default BauteilAußenwandUebersicht;

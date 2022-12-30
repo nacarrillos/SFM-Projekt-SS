@@ -7,11 +7,11 @@ import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 
 import BaugruppenUebersicht from "../components/BaugruppenUebersicht";
-import HomeBaurppenBild from "../components/HomeBaurppenBild";
+import HomeBaugruppenBild from "../components/HomeBaugruppenBild";
 
 
 //Homes des Websites URL
-const Home = () => {
+const HomeBaugruppen = () => {
   const { userData } = useContext(BauteilContext);
   console.log(userData.benutzername);
   return (
@@ -21,11 +21,12 @@ const Home = () => {
         <h1 className="text-center mb-4">Herzlich Willkommen {userData.benutzername} !</h1>
       </div>
       <Row>
-        <Col><HomeBaurppenBild/></Col>
+        <Col><HomeBaugruppenBild/></Col>
         <Col className="square border border-1 rounded-3 p-1">
           <BauteilSuche/>
           
           <BaugruppenUebersicht/>
+          
         
         </Col>
       
@@ -40,4 +41,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomeBaugruppen;
