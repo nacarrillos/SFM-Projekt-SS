@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import "../styles/HomeBaurppenBild.css";
 
 //Function, um Information eines Bauteiles aus dem Backend zu lesen und zu Render mit dem React Bootstrap
-const HomeBaurppenBild = (props) => {
+const HomeBaugruppenBild = (props) => {
   
 
   //React Bootstrap bzw. HTML Code für das Ansehen der Information eines Bauteiles
@@ -21,4 +21,4 @@ const HomeBaurppenBild = (props) => {
   );
 };
 
-export default HomeBaurppenBild;
+export default HomeBaugruppenBild;
