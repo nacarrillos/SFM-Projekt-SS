@@ -37,6 +37,7 @@ create table baugruppen (
     baugruppe_bild TEXT NOT NULL 
 );
 
+
 insert into baugruppen (baugruppe_name, baugruppe_beschreibung, baugruppe_bild) values ('Aufbau','Betrieb','Link');
 insert into baugruppen (baugruppe_name, baugruppe_beschreibung, baugruppe_bild) values ('Innenausbau','Betrieb','Link');
 insert into baugruppen (baugruppe_name, baugruppe_beschreibung, baugruppe_bild) values ('Stromversorgung','Betrieb','Link');
@@ -45,6 +46,22 @@ insert into baugruppen (baugruppe_name, baugruppe_beschreibung, baugruppe_bild) 
 insert into baugruppen (baugruppe_name, baugruppe_beschreibung, baugruppe_bild) values ('Heizung','Betrieb','Link');
 insert into baugruppen (baugruppe_name, baugruppe_beschreibung, baugruppe_bild) values ('Lüftung','Betrieb','Link');
 
+"Ergänzen der Teilenummer"
+
+alter table baugruppen add column teilenummer varchar(50);
+
+"Einfügen der Teilenummer"
+
+update baugruppen set teilenummer = '01' where id=1;
+update baugruppen set teilenummer = '02' where id=2;
+update baugruppen set teilenummer = '03' where id=3;
+update baugruppen set teilenummer = '04' where id=4;
+update baugruppen set teilenummer = '05' where id=5;
+update baugruppen set teilenummer = '06' where id=6;
+update baugruppen set teilenummer = '07' where id=7;
+
+"Not Null constraint ergänzen"
+alter table baugruppen alter column teilenummer set not null
 
 "Teilgruppen"
 
@@ -62,6 +79,24 @@ insert into teilegruppen (teilegruppe_name, teilegruppe_beschreibung, teilegrupp
 insert into teilegruppen (teilegruppe_name, teilegruppe_beschreibung, teilegruppe_bild, baugruppe_id) values ('Dach','Dummy','Link', 1);
 insert into teilegruppen (teilegruppe_name, teilegruppe_beschreibung, teilegruppe_bild, baugruppe_id) values ('Fenster','Dummy','Link', 1);
 insert into teilegruppen (teilegruppe_name, teilegruppe_beschreibung, teilegruppe_bild, baugruppe_id) values ('Tueren','Dummy','Link', 1);
+
+"Ergänzen der Teilenummer"
+
+alter table teilegruppen add column teilenummer varchar(50);
+
+"Einfügen der Teilenummer"
+
+update teilegruppen set teilenummer = '01.01' where id=1;
+update teilegruppen set teilenummer = '01.02' where id=2;
+update teilegruppen set teilenummer = '01.03' where id=3;
+update teilegruppen set teilenummer = '01.04' where id=4;
+update teilegruppen set teilenummer = '01.05' where id=5;
+update teilegruppen set teilenummer = '01.06' where id=6;
+
+"Not Null constraint ergänzen"
+alter table teilegruppen alter column teilenummer set not null;
+
+
 
 "Bauteile"
 
@@ -104,33 +139,147 @@ insert into bauteile (bauteil_name, bauteil_beschreibung, bauteil_bild, teilegru
 insert into bauteile (bauteil_name, bauteil_beschreibung, bauteil_bild, teilegruppe_id) values ('Außenwand3','Dummy','Link', 1);
 insert into bauteile (bauteil_name, bauteil_beschreibung, bauteil_bild, teilegruppe_id) values ('Außenwand4','Dummy','Link', 1);
 
+"Ergänzen der Teilenummer"
+
+alter table bauteile add column teilenummer varchar(50);
+
+"Einfügen der Teilenummer"
+
+update bauteile set teilenummer = '01.05.001' where id=1;
+update bauteile set teilenummer = '01.05.002' where id=2;
+update bauteile set teilenummer = '01.05.003' where id=3;
+update bauteile set teilenummer = '01.05.004' where id=4;
+update bauteile set teilenummer = '01.04.001' where id=5;
+update bauteile set teilenummer = '01.04.002' where id=6;
+update bauteile set teilenummer = '01.04.003' where id=7;
+update bauteile set teilenummer = '01.04.004' where id=8;
+update bauteile set teilenummer = '01.03.001' where id=9;
+update bauteile set teilenummer = '01.03.002' where id=10;
+update bauteile set teilenummer = '01.03.003' where id=11;
+update bauteile set teilenummer = '01.03.004' where id=12;
+update bauteile set teilenummer = '01.02.001' where id=13;
+update bauteile set teilenummer = '01.02.002' where id=14;
+update bauteile set teilenummer = '01.02.003' where id=15;
+update bauteile set teilenummer = '01.02.004' where id=16;
+update bauteile set teilenummer = '01.01.001' where id=17;
+update bauteile set teilenummer = '01.01.002' where id=18;
+update bauteile set teilenummer = '01.01.003' where id=19;
+update bauteile set teilenummer = '01.01.004' where id=20;
+update bauteile set teilenummer = '01.06.001' where id=25;
+update bauteile set teilenummer = '01.06.002' where id=26;
+update bauteile set teilenummer = '01.06.003' where id=27;
+update bauteile set teilenummer = '01.06.004' where id=28;
+
+"Not Null constraint ergänzen"
+alter table bauteile alter column teilenummer set not null;
+
+"Ergänzen der Teilenummer"
+
+alter table bauteile add column bauteil_bild_explosion TEXT;
+
+"Einfügen BauteilBild" 
+
+update bauteile set bauteil_bild ='/images/Außenwand/Außenwand.png' where id = 17;
+update bauteile set bauteil_name ='Außenwand' where id = 17;
+update bauteile set bauteil_bild_explosion ='/images/Außenwand/AußenwandExplosion.png' where id = 17;
+
+update bauteile set bauteil_bild ='/images/Außenwand/AußenwandFenster.png' where id = 18;
+update bauteile set bauteil_name ='Außenwand mit Fenster' where id = 18;
+
+update bauteile set bauteil_bild ='/images/Außenwand/AußenwandTuere.png' where id = 19;
+update bauteile set bauteil_name ='Außenwand mit Türe' where id = 19;
+
+update bauteile set bauteil_bild = '/images/Fußboden/Fußboden.png' where id = 9;
+update bauteile set bauteil_name ='Fußboden' where id = 9;
+update bauteile set bauteil_bild_explosion ='/images/Fußboden/FußbodenExplosion.png' where id = 9;
+
+update bauteile set bauteil_bild ='/images/Innenwand/Innenwand.png' where id = 13;
+update bauteile set bauteil_name ='Innenwand' where id = 13;
+update bauteile set bauteil_bild_explosion ='/images/Innenwand/InnenwandExplosion.png' where id = 13;
+
+update bauteile set bauteil_bild ='/images/Innenwand/InnenwandFensterausschnitt.png' where id = 14;
+update bauteile set bauteil_name ='Innenwand mit Fensterausschnitt' where id = 14;
+
+update bauteile set bauteil_bild ='/images/Innenwand/InnenwandDurchgang.png' where id = 15;
+update bauteile set bauteil_name ='Innenwand mit Durchgang' where id = 15;
+
+update bauteile set bauteil_bild ='/images/Dach/Dach.png' where id = 5;
+update bauteile set bauteil_name ='Dach' where id = 5;
+update bauteile set bauteil_bild_explosion ='/images/Dach/DachExplosion.png' where id = 5;
+
 
 "Teile"
 
 create table einzelteile(
     id BIGSERIAL NOT NULL PRIMARY KEY,
-    einzelteil_nummer VARCHAR(20) NOT NULL,
+    teilenummer VARCHAR(20) NOT NULL,
     einzelteil_name VARCHAR(50) NOT NULL,
-    einzelteil_herstellungsdatum DATE NOT NULL,
     einzelteil_beschreibung TEXT NOT NULL,
     einzelteil_bild TEXT NOT NULL,
-    bauteil_id BIGINT NOT NULL REFERENCES bauteile(id) 
+    bauteil_ids VARCHAR(50) NOT NULL
 );
 
-insert into einzelteile (einzelteil_nummer,einzelteil_name, einzelteil_herstellungsdatum,einzelteil_beschreibung, einzelteil_bild, bauteil_id) 
-values ('1.6.001.001','Zarge','2022-05-28','Dummy','Link', 1);
-insert into einzelteile (einzelteil_nummer,einzelteil_name, einzelteil_herstellungsdatum,einzelteil_beschreibung, einzelteil_bild, bauteil_id) 
-values ('1.6.001.002','Türblatt','2022-05-28','Dummy','Link', 1);
-insert into einzelteile (einzelteil_nummer,einzelteil_name, einzelteil_herstellungsdatum,einzelteil_beschreibung, einzelteil_bild, bauteil_id) 
-values ('1.6.001.003','Drückergarnitur','2022-05-28','Dummy','Link', 1);
-insert into einzelteile (einzelteil_nummer,einzelteil_name, einzelteil_herstellungsdatum,einzelteil_beschreibung, einzelteil_bild, bauteil_id) 
-values ('1.6.001.004','Schlosskasten','2022-05-28','Dummy','Link', 1);
-insert into einzelteile (einzelteil_nummer,einzelteil_name, einzelteil_herstellungsdatum,einzelteil_beschreibung, einzelteil_bild, bauteil_id) 
-values ('1.6.001.005','Schließblech','2022-05-28','Dummy','Link', 1);
-insert into einzelteile (einzelteil_nummer,einzelteil_name, einzelteil_herstellungsdatum,einzelteil_beschreibung, einzelteil_bild, bauteil_id) 
-values ('1.6.001.006','Türband','2022-05-28','Dummy','Link', 1);
-insert into einzelteile (einzelteil_nummer,einzelteil_name, einzelteil_herstellungsdatum,einzelteil_beschreibung, einzelteil_bild, bauteil_id) 
-values ('1.6.001.007','Schlossrosette','2022-05-28','Dummy','Link', 1);
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.01.111.001','Holzfassade','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.01.111.002','Lattung','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.01.111.003','Unterdeckplatte','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.02.222.001','Innenverkleidung','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.02.222.002','Holzwand','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.02.222.003','HWärmedämmung','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.03.333.001','Tragschicht','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.03.333.002','Bitumen','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.03.333.003','Wärmedämmung','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.03.333.004','Trittschalldämmung','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.03.333.005','Bodenbelag','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.04.444.001','Sparren','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.04.444.002','Dampfsperre','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.04.444.003','Dämmung','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.04.444.004','Witterungsschutz','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.04.444.005','Dachlatte','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.04.444.006','Dachziegel','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.05.555.001','Scherenlager','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.05.555.002','Fensterglas','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.05.555.003','Ecklager','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.05.555.004','Fenster-Griff','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.05.555.005','Flügelrahmen','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.05.555.006','Blendrahmen','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.06.666.001','Zarge','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.06.666.002','Türblatt','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.06.666.003','Drückergarnitur','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.06.666.004','Schlosskasten','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.06.666.005','Schließblech','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.06.666.006','Türband','Dummy','Link', 'hier folgt ein string');
+insert into einzelteile (teilenummer,einzelteil_name, einzelteil_beschreibung, einzelteil_bild, bauteil_ids) 
+values ('01.06.666.007','Schlossrosette','Dummy','Link', 'hier folgt ein string');
+
 
 "Aufgaben"
 

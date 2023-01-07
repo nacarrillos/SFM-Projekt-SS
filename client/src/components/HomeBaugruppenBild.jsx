@@ -11,7 +11,7 @@ const HomeBaugruppenBild = (props) => {
   return (
     <Container className="square border border-1 rounded-3 p-1" sm="auto">
       <img 
-          src="/images/Fussboden2.png"
+          src="/images/Haus/Haus_Gesamt.png"
           className="HomeBaurppenBild"
           
           
