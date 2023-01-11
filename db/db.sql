@@ -179,19 +179,25 @@ alter table bauteile add column bauteil_bild_explosion TEXT;
 
 "Einfügen BauteilBild" 
 
-update bauteile set bauteil_bild ='/images/Außenwand/Außenwand.png' where id = 17;
+update bauteile set bauteil_bild ='/images/Aussenwand/Aussenwand.png' where id = 17;
 update bauteile set bauteil_name ='Außenwand' where id = 17;
-update bauteile set bauteil_bild_explosion ='/images/Außenwand/AußenwandExplosion.png' where id = 17;
+update bauteile set bauteil_bild_explosion ='/images/Aussenwand/AussenwandExplosion.png' where id = 17;
 
-update bauteile set bauteil_bild ='/images/Außenwand/AußenwandFenster.png' where id = 18;
-update bauteile set bauteil_name ='Außenwand mit Fenster' where id = 18;
+update bauteile set bauteil_bild ='/images/Aussenwand/AussenwandFenster.png' where id = 18;
+update bauteile set bauteil_name ='Außenwand mit Fensterausschnitt' where id = 18;
 
-update bauteile set bauteil_bild ='/images/Außenwand/AußenwandTuere.png' where id = 19;
+update bauteile set bauteil_bild ='/images/Aussenwand/AussenwandTuere.png' where id = 19;
 update bauteile set bauteil_name ='Außenwand mit Türe' where id = 19;
 
-update bauteile set bauteil_bild = '/images/Fußboden/Fußboden.png' where id = 9;
+update bauteile set bauteil_name ='Außenwand4' where id = 20;
+
+update bauteile set bauteil_bild = '/images/Fussboden/Fussboden.png' where id = 9;
 update bauteile set bauteil_name ='Fußboden' where id = 9;
-update bauteile set bauteil_bild_explosion ='/images/Fußboden/FußbodenExplosion.png' where id = 9;
+update bauteile set bauteil_bild_explosion ='/images/Fussboden/FussbodenExplosion.png' where id = 9;
+
+update bauteile set bauteil_name ='Fußboden2' where id = 10;
+update bauteile set bauteil_name ='Fußboden3' where id = 11;
+update bauteile set bauteil_name ='Fußboden4' where id = 12;
 
 update bauteile set bauteil_bild ='/images/Innenwand/Innenwand.png' where id = 13;
 update bauteile set bauteil_name ='Innenwand' where id = 13;
@@ -206,6 +212,15 @@ update bauteile set bauteil_name ='Innenwand mit Durchgang' where id = 15;
 update bauteile set bauteil_bild ='/images/Dach/Dach.png' where id = 5;
 update bauteile set bauteil_name ='Dach' where id = 5;
 update bauteile set bauteil_bild_explosion ='/images/Dach/DachExplosion.png' where id = 5;
+
+update bauteile set bauteil_bild ='/images/Fenster/Fenster1.png' where id = 1;
+update bauteile set bauteil_bild ='/images/Fenster/Fenster2.png' where id = 2;
+
+update bauteile set bauteil_bild ='/images/Fenster/Fenster2.png' where id = 2;
+
+
+update bauteile set bauteil_name ='Tür1' where id = 25;
+update bauteile set bauteil_bild ='/images/Tuer/Tuer1.png' where id = 25;
 
 
 "Teile"

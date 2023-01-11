@@ -1,0 +1,30 @@
+
+  @media screen and (min-width: 395px) and (max-width:851px){
+    .rowContainer{
+      display: flex;
+      max-width: 810px !important;
+      box-sizing: border-box !important;
+      align-content: center !important;
+      justify-content: center !important;
+      
+    }
+  
+  
+  }
+
+@media screen and (max-width: 394px) {
+  .rowContainer{
+    box-sizing: border-box !important;
+    max-width: 393px !important;
+    margin: 2px !important;
+    align-content: center !important;
+    justify-content: center !important;
+    
+
+  }
+}
+
+.rowContainer{
+  align-content: center !important;
+  justify-content: center !important;
+}

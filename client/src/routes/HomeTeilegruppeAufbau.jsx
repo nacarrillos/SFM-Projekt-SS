@@ -5,14 +5,15 @@ import Container from "react-bootstrap/esm/Container";
 import "../styles/Body.css";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
+import "../styles/BaugruppenUebersicht.css";
 
-import AufbauUebersicht from "../components/AufbauUebersicht";
+import TeilegruppeUebersichtAufbau from "../components/TeilegruppeUebersichtAufbau";
 import HomeBaugruppenBild from "../components/HomeBaugruppenBild";
 
 
 
 //Homes des Websites URL
-const HomeAufbau = () => {
+const HomeTeilegruppeAufbau = () => {
   const { userData } = useContext(BauteilContext);
   console.log(userData.benutzername);
   return (
@@ -21,12 +22,12 @@ const HomeAufbau = () => {
       <div>
         <h1 className="text-center mb-4">Herzlich Willkommen {userData.benutzername} !</h1>
       </div>
-      <Row>
-        <Col><HomeBaugruppenBild/></Col>
-        <Col className="square border border-1 rounded-3 p-1">
+      <Row className="rowContainer">
+        <Col fluid className="px-0"><HomeBaugruppenBild/></Col>
+        <Col className="px-0">
           <BauteilSuche/>
           
-          <AufbauUebersicht/>
+          <TeilegruppeUebersichtAufbau/>
         
         </Col>
       
@@ -41,4 +42,4 @@ const HomeAufbau = () => {
   );
 };
 
-export default HomeAufbau;
+export default HomeTeilegruppeAufbau;

@@ -6,7 +6,8 @@ import "../styles/Body.css";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 import HomeBaugruppenBild from "../components/HomeBaugruppenBild";
-import AußenwandUebersicht from "../components/AußenwandUebersicht";
+import BauteilgruppeUebersichtAußenwand from "../components/BauteilgruppeUebersichtAußenwand";
+import "../styles/BaugruppenUebersicht.css";
 
 
 
@@ -20,12 +21,12 @@ const HomeAußenwand = () => {
       <div>
         <h1 className="text-center mb-4">Herzlich Willkommen {userData.benutzername} !</h1>
       </div>
-      <Row>
-        <Col><HomeBaugruppenBild/></Col>
-        <Col className="square border border-1 rounded-3 p-1">
+      <Row className="rowContainer">
+        <Col fluid className="px-0"><HomeBaugruppenBild/></Col>
+        <Col className="px-0">
           <BauteilSuche/>
           
-          <AußenwandUebersicht/>
+          <BauteilgruppeUebersichtAußenwand/>
           
         
         </Col>
