@@ -1,15 +1,44 @@
 .HomeBaurppenBild{
+ margin-top: 8px;
+ max-height: 495.8px;
  max-width: 518px;
  border-radius: .3rem;
 }
 
 /*max-width: 350, da sonst Bild mit 518px zu zu groß*/
 
+.mobilAdjustment{
+  box-sizing: border-box;
+  display: flex;
+  padding: 0px !important;
+ 
+  border: 1px;
+  border-radius: 2px;
+  border-color: green !important;
+  align-content: center;
+  justify-content: center;
+}
 
-@media screen and (max-width: 852px) {
+@media screen and (min-width: 395px) and (max-width:852px){
   .HomeBaurppenBild{
-    max-width: 350px;
+    max-width: 330px;
+    border-radius: .3rem;
+    display: flex;
+   }
+  
+}
+
+@media screen and (max-width: 394px) {
+  .HomeBaurppenBild{
+    max-width: 357px;
     border-radius: .3rem;
    }
+  .mobilAdjustment{
+    box-sizing: border-box !important;
+    max-width: 350px;
+    padding: 0px !important;
+    margin-bottom: 12px;
+    
+  }
   
 }

@@ -4,7 +4,6 @@ import PathFinder from "../apis/PartFinder";
 import { BauteilContext } from "../context/BauteilContext";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import "../styles/BauteilInfo.css";

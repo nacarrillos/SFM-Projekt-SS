@@ -3,7 +3,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import { BauteilContextProvider } from "./context/BauteilContext";
 import BauteilHome from "./routes/BauteilHome";
 import HomeBaugruppen from "./routes/HomeBaugruppen";
-import HomeAufbau from "./routes/HomeAufbau";
+import HomeTeilegruppeAufbau from "./routes/HomeTeilegruppeAufbau";
 import LoginPage from "./routes/LoginPage";
 import Bottom from "./components/Bottom";
 import Navbar from "./components/Navbar";
@@ -13,7 +13,7 @@ import "./styles/App.css";
 import Datenschutz from "./routes/Datenschutz";
 import Impressum from "./routes/Impressum";
 import AdminHome from "./routes/AdminHome";
-import HomeAußenwand from "./routes/HomeAußenwand";
+import HomeBauteilgruppeAußenwand from "./routes/HomeBauteilgruppeAußenwand";
 import HomeBauteilAußenwand from "./routes/HomeBauteilAußenwand";
 //Wenn private Routes getriggert werden wird erst geprüft ob der Benutzer aunthentifiziert ist, ansonsten wird zu Login Page geführt
 const PrivateRoutes = () => {
@@ -39,9 +39,9 @@ const App = () => {
           <Navbar />
           <Routes>
             <Route exact path="/" element={<HomeBaugruppen />} />
-            <Route  exact path="/aufbau" element={<HomeAufbau/>}/>
-            <Route exact path="/aufbau/aussenwand" element={<HomeAußenwand/>}/>
-            <Route exact path="/aufbau/aussenwand/:id" element={<HomeBauteilAußenwand/>}/>
+            <Route  exact path="/aufbau" element={<HomeTeilegruppeAufbau/>}/>
+            <Route exact path="/aufbau/aussenwand" element={<HomeBauteilgruppeAußenwand/>}/>
+            <Route exact path="/aufbau/aussenwand/:teilenummer" element={<HomeBauteilAußenwand/>}/>
             <Route exact path="/datenschutz" element={<Datenschutz />} />
             <Route exact path="/impressum" element={<Impressum />} />
             <Route exact path="/bauteil/:id" element={<BauteilHome />} />

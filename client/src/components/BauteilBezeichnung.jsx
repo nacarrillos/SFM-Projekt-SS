@@ -32,7 +32,7 @@ const BauteilBezeichnung = (props) => {
   return (
     <Container className="square border border-1 rounded-3 p-1" sm="auto">
       <Row className="d-flex py-2 mx-0">
-        <h1 className="text-center">Bauteil: {bauteil.bauteil_name} Fenster</h1>
+        <h1 className="text-center">Bauteil: {bauteil.bauteil_name}</h1>
       </Row>
     </Container>
   );
