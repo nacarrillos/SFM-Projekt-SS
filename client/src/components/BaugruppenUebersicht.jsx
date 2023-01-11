@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Badge from 'react-bootstrap/Badge';
 
 
+
 //Function, um Information eines Bauteiles aus dem Backend zu lesen und zu Render mit dem React Bootstrap
 const BaugruppenUebersicht = (props) => {
 
@@ -17,19 +18,19 @@ const BaugruppenUebersicht = (props) => {
     console.log(e.target.textContent)
     try {
         
-        if(e.target.textContent === "01 - Aufbau1") {
+        if(e.target.textContent === "01 - AufbauOk") {
           navigate(`/aufbau`);
-        } else if (e.target.textContent ==="02 - Innenausbau2") {
+        } else if (e.target.textContent ==="02 - InnenausbauWartung") {
             navigate(`/innenausbau`);
-        } else if (e.target.textContent === "03 - Stromversorgung3") {
+        } else if (e.target.textContent === "03 - StromversorgungWartung") {
             navigate(`/stromversorgung`);
-        } else if(e.target.textContent === "04 - Wasserversorgung4") {
+        } else if(e.target.textContent === "04 - WasserversorgungWartung") {
             navigate(`/wasserversorgung`);
-        } else if (e.target.textContent === "05 - Sanitäranlagen5") {
+        } else if (e.target.textContent === "05 - SanitäranlagenWartung") {
             navigate(`/sanitäranlagen`);
-        } else if (e.target.textContent === "06 - Heizung6") {
+        } else if (e.target.textContent === "06 - HeizungWartung") {
             navigate(`/heizung`);
-        } else if (e.target.textContent === "07 - Lüftung7"){
+        } else if (e.target.textContent === "07 - LüftungFehler"){
             navigate(`/lüftung`);
         } else {}
       
@@ -53,31 +54,31 @@ const BaugruppenUebersicht = (props) => {
               
               <ListGroup.Item className="d-flex justify-content-between align-items-start" action onClick={(e) => handleSuche(e)}>
                 01 - Aufbau
-                <Badge bg="primary" pill>1</Badge>
+                <Badge bg="success" pill>Ok</Badge>
               </ListGroup.Item>
               <ListGroup.Item className="d-flex justify-content-between align-items-start" action onClick={(e) => handleSuche(e)}>
                  02 - Innenausbau
-                 <Badge bg="primary" pill>2</Badge>
+                 <Badge bg="warning" pill>Wartung</Badge>
               </ListGroup.Item>
               <ListGroup.Item className="d-flex justify-content-between align-items-start" action onClick={(e) => handleSuche(e)}>
                   03 - Stromversorgung
-                  <Badge bg="primary" pill>3</Badge>
+                  <Badge bg="warning" pill>Wartung</Badge>
               </ListGroup.Item>
               <ListGroup.Item className="d-flex justify-content-between align-items-start" action onClick={(e) => handleSuche(e)}>
                   04 - Wasserversorgung
-                  <Badge bg="primary" pill>4</Badge>
+                  <Badge bg="warning" pill>Wartung</Badge>
               </ListGroup.Item>
               <ListGroup.Item className="d-flex justify-content-between align-items-start" action onClick={(e) => handleSuche(e)}>
                   05 - Sanitäranlagen
-                  <Badge bg="primary" pill>5</Badge>
+                  <Badge bg="warning" pill>Wartung</Badge>
               </ListGroup.Item>
               <ListGroup.Item className="d-flex justify-content-between align-items-start" action onClick={(e) => handleSuche(e)}>
                   06 - Heizung
-                  <Badge bg="primary" pill>6</Badge>
+                  <Badge bg="warning" pill>Wartung</Badge>
               </ListGroup.Item>
               <ListGroup.Item className="d-flex justify-content-between align-items-start" action onClick={(e) => handleSuche(e)}>
                   07 - Lüftung
-                  <Badge bg="primary" pill>7</Badge>
+                  <Badge bg="danger" pill>Fehler</Badge>
               </ListGroup.Item>
               
               </ListGroup>

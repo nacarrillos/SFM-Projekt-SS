@@ -5,7 +5,7 @@ import Container from "react-bootstrap/esm/Container";
 import "../styles/Body.css";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
-import BauteilAußenwandUebersicht from "../components/BauteilAußenwandUebersicht";
+import BauteilUebersichtAußenwand from "../components/BauteilUebersichtAußenwand";
 import BauteilBezeichnung from "../components/BauteilBezeichnung";
 import HomeBauteilBild from "../components/HomeBauteilBild";
 
@@ -32,7 +32,7 @@ const HomeBauteilAußenwand = () => {
         <Col className="square border border-1 rounded-3 p-1">
           <BauteilSuche/>
           
-          <BauteilAußenwandUebersicht/>
+          <BauteilUebersichtAußenwand/>
           
         
         </Col>

@@ -8,21 +8,21 @@ import { ArrowLeftSquareFill  } from 'react-bootstrap-icons';
 
 
 //Function, um Information eines Bauteiles aus dem Backend zu lesen und zu Render mit dem React Bootstrap
-const AußenwandUebersicht = (props) => {
+const BauteilgruppeUebersichtAußenwand = (props) => {
 
   let navigate = useNavigate();
 
   const handleSuche = (e) => {
     e.preventDefault();
     try {
-      if(e.target.textContent === "01.01.017 - Außenwand 1") {
-        navigate(`/aufbau/aussenwand/id`);
-      } else if (e.target.textContent === "01.01.018 - Außenwand 2") {
-          navigate(`/aufbau/innenwand/id`);
-      } else if (e.target.textContent === "01.01.018 - Außenwand 3") {
-          navigate(`/aufbau/fußboden/id`);
-      } else if(e.target.textContent === "01.01.018 - Außenwand 4") {
-          navigate(`/aufbau/dach/id`);
+      if(e.target.textContent === "01.01.001 - Außenwand") {
+        navigate(`/aufbau/aussenwand/01.01.001`);
+      } else if (e.target.textContent === "01.01.002 - Außenwand mit Fensterausschnitt") {
+          navigate(`/aufbau/aussenwand/01.01.002`);
+      } else if (e.target.textContent === "01.01.003 - Außenwand mit Türe") {
+          navigate(`/aufbau/aussenwand/01.01.003`);
+      } else if(e.target.textContent === "01.01.004 - Außenwand 4") {
+          navigate(`/aufbau/aussenwand/01.01.004`);
       }  else if (e.target.textContent === " Teilegruppen") {
         navigate(`/aufbau`);
       } else {}
@@ -46,16 +46,16 @@ const AußenwandUebersicht = (props) => {
             <ListGroup className="rounded-0 ">
               
               <ListGroup.Item action onClick={(e) => handleSuche(e)}>
-                01.01.017 - Außenwand 1
+                01.01.001 - Außenwand
               </ListGroup.Item>
               <ListGroup.Item action onClick={(e) => handleSuche(e)}>
-                01.01.018 - Außenwand 2
+              01.01.002 - Außenwand mit Fensterausschnitt
               </ListGroup.Item>
               <ListGroup.Item action onClick={(e) => handleSuche(e)}>
-                01.01.019 - Außenwand 3
+              01.01.003 - Außenwand mit Türe
               </ListGroup.Item>
               <ListGroup.Item action onClick={(e) => handleSuche(e)}>
-                01.01.020 - Außenwand 4
+                01.01.004 - Außenwand 4
               </ListGroup.Item>
               <ListGroup.Item action onClick={(e) => handleSuche(e)}>
                 <ArrowLeftSquareFill color="grey" size={22} /> Teilegruppen
@@ -71,4 +71,4 @@ const AußenwandUebersicht = (props) => {
   );
 };
 
-export default AußenwandUebersicht;
+export default BauteilgruppeUebersichtAußenwand;

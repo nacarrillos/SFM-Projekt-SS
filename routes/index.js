@@ -29,6 +29,22 @@ router.get("/api/:id", async (req, res) => {
   }
 });
 
+//API für den Abruf von Information aus einem Bauteil durch ID
+router.get("/api/aufbau/aussenwand/:teilenummer", async (req, res) => {
+  try {
+    const teilenummer = req.params.teilenummer;
+    const results = await db.query("select * from bauteile where teilenummer=$1", [teilenummer]);
+    res.status(200).json({
+      status: "success",
+      data: {
+        bauteil: results.rows,
+      },
+    });
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
 //API für den Abruf der Historie aus einem Bauteil durch ID
 router.get("/api/:id/historie", async (req, res) => {
   try {
