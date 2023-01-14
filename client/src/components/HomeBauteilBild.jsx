@@ -53,15 +53,14 @@ const HomeBauteilBild = (props) => {
             </Card.Header>
           <Card.Body className="p-2 " >
             <Card.Text className="pb-0" >
-            Abmessungen:<br></br>
-            {bauteil.bauteil_beschreibung[0]}
-            <br></br>
-              <br></br>
-              Aufbau: <br></br>{bauteil.bauteil_beschreibung[1]}
-              <br></br>
-              <br></br>
-              Funktion: <br></br>
-              {bauteil.bauteil_beschreibung[2]}    
+            
+            {'Ich wollte die Nachricht in einem Array speicher und die einzelen Komonenten ancheinader ausgeben->> bessere Darstellung als reiner text'}
+            {'{bauteil.bauteil_beschreibung[0]}'}
+            {'{bauteil.bauteil_beschreibung[1]}'}
+            {'{bauteil.bauteil_beschreibung[2]}'}
+            
+           
+    
             </Card.Text>
           </Card.Body>
       </Card>
