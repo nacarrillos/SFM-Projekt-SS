@@ -4,6 +4,7 @@ import PathFinder from "../apis/PartFinder";
 import { BauteilContext } from "../context/BauteilContext";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import Card from 'react-bootstrap/Card';
 
 import "../styles/BauteilInfo.css";
 
@@ -30,9 +31,13 @@ const BauteilBezeichnung = (props) => {
 
   //React Bootstrap bzw. HTML Code für das Ansehen der Information eines Bauteiles
   return (
-    <Container className="square border border-1 rounded-3 p-1" sm="auto">
-      <Row className="d-flex py-2 mx-0">
-        <h1 className="text-center">Bauteil: {bauteil.bauteil_name}</h1>
+    <Container className="" sm="auto">
+      <Row >
+        <Card className="mobilAdjustmentBezeichnung">
+          <Card.Header className="text-center border" as="h4">
+            Bauteil: {bauteil.bauteil_name}
+          </Card.Header>
+        </Card>
       </Row>
     </Container>
   );

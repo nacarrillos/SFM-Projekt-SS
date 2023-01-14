@@ -1,0 +1,70 @@
+.HomeBaurppenBild{
+ margin-top: 8px;
+ max-height: 495.8px;
+ max-width: 518px;
+ border-radius: .3rem;
+ align-content: center;
+  justify-content: center;
+}
+
+/*max-width: 350, da sonst Bild mit 518px zu zu groß*/
+
+.mobilAdjustment{
+  box-sizing: border-box;
+  display: flex;
+  padding: 0px !important;
+  max-width: 518px !important;
+  border: 1px solid rgba(0,0,0,.125) !important;
+  border-radius: 0.25rem !important;
+  align-content: center;
+  justify-content: center;
+}
+
+.mobilAdjustmentBild{
+  box-sizing: border-box;
+  display: flex;
+  padding: 0px !important;
+  max-width: 518px !important;
+  border: 0px solid rgba(252, 252, 252, 0) !important;
+  border-radius: 0.25rem !important;
+  align-content: center;
+  justify-content: center;
+  margin-bottom: 0px;
+
+}
+
+@media screen and (min-width: 395px) and (max-width:852px){
+  .HomeBauteilBild{
+    max-width: 330px;
+    border-radius: .3rem;
+    display: flex;
+   }
+  
+}
+
+@media screen and (max-width: 394px) {
+  .HomeBauteilBild{
+    max-width: 357px;
+    border-radius: .3rem;
+   }
+  .mobilAdjustmentBild{
+    box-sizing: border-box !important;
+    max-width: 360px !important;
+    padding: 0px !important;
+    margin-bottom: 0px;
+    border: 0px solid rgba(252, 252, 252, 0) !important;
+    
+  }
+  .mobilAdjustment{
+    box-sizing: border-box !important;
+    max-width: 360px !important;
+    padding: 0px !important;
+    margin-bottom: 24px;
+    border: 1px solid rgba(0,0,0,.125) !important;
+    border-radius: 0.25rem !important;
+  }
+}
+
+.AnpassungCard{
+  border: 0px !important;
+}

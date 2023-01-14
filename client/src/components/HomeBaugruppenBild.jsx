@@ -9,7 +9,7 @@ const HomeBaugruppenBild = (props) => {
 
   //React Bootstrap bzw. HTML Code für das Ansehen der Information eines Bauteiles
   return (
-    <Container className="mobilAdjustment" sm="auto">
+    <Container className="mobilAdjustmentBaugruppen" sm="auto">
       <img 
           src="/images/Haus/TinyHouse.png"
           className="HomeBaurppenBild"
