@@ -29,6 +29,8 @@ insert into benutzer (benutzername, kennwort, benutzertyp) values ('Hannah','123
 
 insert into benutzer (benutzername, kennwort, benutzertyp) values ('Jakim','1234!','Produktionsmitarbeiter');
 
+update benutzer set benutzername ='testHandwerker' where id = 8;
+
 "Baugruppentabelle"
 create table baugruppen (
     id BIGSERIAL NOT NULL PRIMARY KEY,
@@ -36,7 +38,6 @@ create table baugruppen (
     baugruppe_beschreibung TEXT NOT NULL,
     baugruppe_bild TEXT NOT NULL 
 );
-
 
 insert into baugruppen (baugruppe_name, baugruppe_beschreibung, baugruppe_bild) values ('Aufbau','Betrieb','Link');
 insert into baugruppen (baugruppe_name, baugruppe_beschreibung, baugruppe_bild) values ('Innenausbau','Betrieb','Link');
@@ -189,7 +190,9 @@ update bauteile set bauteil_bild ='/images/Aussenwand/Aussenwand.png' where id =
 update bauteile set bauteil_name ='Außenwand' where id = 17;
 update bauteile set bauteil_bild_explosion ='/images/Aussenwand/AussenwandExplosion.png' where id = 17;
 update bauteile set bauteil_beschreibung = '{Maße (B x H x T): 3m x 3m x 0.15m, Holzfassade; Lattung; Unterdeckplatte, 
-Außenwände trennen Außen- und Innenraum voneinander und erfüllen als meist tragende Wände die statische Aufgabe, die Vertikallasten aufzunehmen. Zudem werden Außenwände so konstruiert, dass sie einen sommerlichen und winterlichen Wärmeschutz bieten. Außenwände müssen eine Schalldämmung, Wind- und Luftdichtheit bieten sowie den Feuerwiderstand, den die Wand haben muss, um einen gewünschten Brandschutz zu gewährleisten.}' where id = 17;
+Außenwände trennen Außen- und Innenraum voneinander und erfüllen als meist tragende Wände die statische Aufgabe. Sie nehmen die Vertikallasten auf. Zudem werden Außenwände so konstruiert, dass sie einen sommerlichen und winterlichen Wärmeschutz bieten. Außenwände müssen eine Schalldämmung, Wind- und Luftdichtheit bieten sowie den Feuerwiderstand, den die Wand haben muss, um einen gewünschten Brandschutz zu gewährleisten.}' where id = 17;
+
+update bauteile set bauteil_beschreibung = '{{"Maße (B x H x T): 3m x 3m x 0.15m"},{"Holzfassade; Lattung; Unterdeckplatte"},{"Außenwände trennen Außen- und Innenraum voneinander und erfüllen als meist tragende Wände die statische Aufgabe. Sie nehmen die Vertikallasten auf. Zudem werden Außenwände so konstruiert, dass sie einen sommerlichen und winterlichen Wärmeschutz bieten. Außenwände müssen eine Schalldämmung, Wind- und Luftdichtheit bieten sowie den Feuerwiderstand, den die Wand haben muss, um einen gewünschten Brandschutz zu gewährleisten."}}' where id = 17;
 
 
 update bauteile set bauteil_beschreibung ='
@@ -377,3 +380,28 @@ insert into aufgaben (aufgabe_typ, aufgabe_beschreibung, aufgabe_abschlussdatum,
 values ('Produktion','Bauteil ist fertiggestellt','2022-05-28','2022-05-28 10:45:00', '2022-05-28 21:45:20', AGE('2022-05-28 21:45:20','2022-05-28 10:45:00'), 8, 2);
 
 
+
+"Ergänzung Teilenummer in Aufgaben"
+
+
+alter table aufgaben add column teilenummer varchar(50);
+
+"Einfügen der Teilenummer für bestehende Aufgaben"
+
+update aufgaben set teilenummer ='01.05.001' where id = 3;
+update aufgaben set teilenummer ='01.05.001' where id = 4;
+update aufgaben set teilenummer ='01.05.001' where id = 5;
+update aufgaben set teilenummer ='01.05.002' where id = 6;
+
+
+"Einfügen Werte für Außenwand"
+
+insert into aufgaben (aufgabe_typ, aufgabe_beschreibung, aufgabe_abschlussdatum,aufgabe_timestamp_start,aufgabe_timestamp_end, aufgabe_dauer, benutzer_id, bauteil_id,teilenummer) 
+values ('Produktion','Bauteil ist fertiggestellt','2022-05-27', '2022-05-27 08:01:00', '2022-05-27 22:08:00', AGE('2022-05-27 22:08:00','2022-05-27 08:01:00') ,3, 17, '01.01.001');
+
+
+insert into aufgaben (aufgabe_typ, aufgabe_beschreibung, aufgabe_abschlussdatum,aufgabe_timestamp_start,aufgabe_timestamp_end, aufgabe_dauer, benutzer_id, bauteil_id,teilenummer) 
+values ('Produktion','Bauteil ist verpackt','2022-05-28', '2022-05-28 07:35:30', '2022-05-28 08:40:20', AGE('2022-05-28 08:40:20','2022-05-28 07:35:30') ,3, 17, '01.01.001');
+
+insert into aufgaben (aufgabe_typ, aufgabe_beschreibung, aufgabe_abschlussdatum,aufgabe_timestamp_start,aufgabe_timestamp_end, aufgabe_dauer, benutzer_id, bauteil_id,teilenummer) 
+values ('Montage','Bauteil ist montiert','2022-05-28','2022-05-28 10:34:50', '2022-05-28 12:08:00', AGE('2022-05-28 12:08:00','2022-05-28 10:34:50') ,3, 17, '01.01.001');

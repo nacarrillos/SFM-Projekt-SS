@@ -17,48 +17,94 @@
     box-sizing: border-box !important;
     max-width: 360px !important;
     padding: 0px !important;
-    margin-bottom: 24px !important;
+    margin-left: 3px !important; margin-bottom: 24px !important;
     border: 1px solid rgba(0,0,0,.125) !important;
     border-radius: 0.25rem !important;
   }
-  
-}
 
-
-@media screen and (max-width: 851px) {
-
-  /*Layout Buttons in Bauteiloptionen*/
   .buttonOptionen{
-    font-size: 18px !important;
-    width: 110px !important;
+    font-size: 17px !important;
+    width: 140px !important;
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
     margin-bottom: 1em !important;
     margin-top: 1em !important;
 
   }
-
-  .rowTableContentHistorie{
-    justify-content: left !important;
-    margin-left: 0.5rem  !important;
-    margin-right: 0px !important;
-    transform: scale(0.84);/*0.84*/
+  .innerCardText{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    padding-left: 12px;
+   
   }
 
-  .tableContentHistorie{
-    background-color: red !important;
-    
-    
-  }
-
-
-}
-
-@media screen and (min-width: 852px) {
   .rowTableContentHistorie{
     margin-left: 0.5rem !important;
     margin-right: 0.5rem  !important;
   }
   
 }
+
+@media screen and (min-width: 852px) {
+
+  .innerCardText{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    padding-left: 6px;
+   
+  }
+  .rowTableContentHistorie{
+    margin-top: 12px !important;
+    margin-left: 0.5rem !important;
+    margin-right: 0.5rem  !important;
+  }
+  .buttonOptionen{
+    font-size: 17px !important;
+    width: 140px !important;
+    margin-bottom: 12px !important;
+    margin-top: 12px !important;
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+
+  }
+  
+}
+
+@media screen and (max-width: 851px) {
+
+  /*Layout Buttons in Bauteiloptionen*/
+  .buttonOptionen{
+    font-size: 18px !important;
+    width: 140px !important;
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+    margin-bottom: 12px !important;
+    margin-top: 12px !important;
+
+  }
+
+  .rowTableContentHistorie{
+    
+    justify-content: left !important;
+    margin-right: 7px !important;
+    margin-left: 0px !important;
+    transform: scale(0.83);/*0.84*/
+  }
+
+  .tableContentHistorie{
+    max-width: 300px !important;
+  }
+
+
+}
+
+
 
 
 
