@@ -13,7 +13,7 @@ const {
 const { userAuth } = require("../middleware/auth-middleware");
 const { hash } = require("bcryptjs");
 
-//API für den Abruf von Information aus einem Bauteil durch ID
+// Alte API für den Abruf von Information aus einem Bauteil durch ID 
 router.get("/api/:id", async (req, res) => {
   try {
     const id = req.params.id;
@@ -29,7 +29,7 @@ router.get("/api/:id", async (req, res) => {
   }
 });
 
-//API für den Abruf von Information aus einem Bauteil durch ID
+//API für den Abruf von Information aus einem Bauteil durch Teilenummer
 router.get("/api/aufbau/aussenwand/:teilenummer", async (req, res) => {
   try {
     const teilenummer = req.params.teilenummer;
@@ -45,13 +45,33 @@ router.get("/api/aufbau/aussenwand/:teilenummer", async (req, res) => {
   }
 });
 
-//API für den Abruf der Historie aus einem Bauteil durch ID
+//Alte API für den Abruf der Historie aus einem Bauteil durch ID
 router.get("/api/:id/historie", async (req, res) => {
   try {
     const id = req.params.id;
     const results = await db.query(
       "select * from aufgaben where bauteil_id=$1",
       [id]
+    );
+
+    res.status(200).json({
+      status: "success",
+      data: {
+        historie: results.rows,
+      },
+    });
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+//API für den Abruf der Historie aus einem Bauteil durch ID
+router.get("/api/aufbau/aussenwand/:teilenummer/historie", async (req, res) => {
+  try {
+    const teilenummer = req.params.teilenummer;
+    const results = await db.query(
+      "select * from aufgaben where teilenummer=$1",
+      [teilenummer]
     );
 
     res.status(200).json({

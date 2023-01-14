@@ -12,9 +12,12 @@ import Table from "react-bootstrap/Table";
 import { useSelector } from "react-redux";
 import { getBenutzerTyp } from "../apis/AuthFinder";
 import "../styles/BauteilOptionen.css";
+import { Download, List  } from 'react-bootstrap-icons';
+
+
 
 const BauteilOptionen = () => {
-  const { id } = useParams();
+  const { teilenummer } = useParams();
   //isAuth aus dem State des Browsers wird gelesen, um die Anthentifizierung eines Benutzers danach zu prüfen
   const { isAuth } = useSelector((state) => state.auth);
 
@@ -25,8 +28,10 @@ const BauteilOptionen = () => {
   //function um die Historie eines Bauteiles aus Backend zu lesen und in Variable newHistorie zu setzen
   const getHistorie = async () => {
     try {
-      const response = await PathFinder.get(`/${id}/historie`);
+      const response = await PathFinder.get(`/aufbau/aussenwand/${teilenummer}/historie`);
       const historie = response.data.data.historie;
+
+      console.log(historie);
 
       let newHistorie = historie.map((aufgabe) => {
         let datumauspostgres = new Date(aufgabe.aufgabe_abschlussdatum);
@@ -65,29 +70,20 @@ const BauteilOptionen = () => {
                   Bauteiloptionen
                 </Card.Header>
               <Card.Body className="p-2 " >
-                <Card.Text className="pb-0" >
-                <Col>
-                  <Button
-                    onClick={historieHandler}
-                    aria-controls="historie-collapse-component"
-                    aria-expanded={open}
-                    variant="secondary"
-                    size="md"
-                    className="buttonOptionen"
-                  >
-                    Historie
-                  </Button> 
-                </Col>
-                <Col>
-                    <Button
-                      onClick={""}
-                      variant="secondary"
-                      size="md"
-                      className="buttonOptionen ">
-                      Grundriss
-                    </Button>
-                  </Col>
-                  <Col>
+                <Card.Text className="pb-0 " >
+                  <div className="innerCardText">
+                  <Row>
+
+                    <Col>
+                      <Button
+                        onClick={""}
+                        variant="secondary"
+                        size="md"
+                        className="buttonOptionen ">
+                         <Download color="white" size={17} /> Bauteilbild
+                      </Button>
+                    </Col>
+                    <Col>
                       <Button
                         onClick={""}
                         aria-controls="historie-collapse-component"
@@ -95,7 +91,7 @@ const BauteilOptionen = () => {
                         variant="secondary"
                         size="md"
                         className="buttonOptionen ">
-                        Reparatur
+                         <Download color="white" size={17} /> Zeichnung
                       </Button>
                     </Col>
                     <Col>
@@ -106,18 +102,47 @@ const BauteilOptionen = () => {
                         variant="secondary"
                         size="md"
                         className="buttonOptionen">
-                        Montage
+                         <Download color="white" size={17} /> Montage
                       </Button>
-                    </Col>     
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-        </>):(<></>)}
+                    </Col>
+                    <Col>
+                      <Button
+                        onClick={""}
+                        aria-controls="historie-collapse-component"
+                        aria-expanded={open}
+                        variant="secondary"
+                        size="md"
+                        className="buttonOptionen">
+                         <Download color="white" size={17} />  Reparatur
+                      </Button>
+                    </Col>
+                    <Col>
+                      <Button
+                        onClick={""}
+                        aria-controls="historie-collapse-component"
+                        aria-expanded={open}
+                        variant="secondary"
+                        size="md"
+                        className="buttonOptionen">
+                        tbd
+                      </Button>
+                    </Col>
+                    <Col>
+                      <Button
+                        onClick={historieHandler}
+                        aria-controls="historie-collapse-component"
+                        aria-expanded={open}
+                        variant="secondary"
+                        size="md"
+                        className="buttonOptionen"
+                      >
+                         <List color="white" size={17} />Historie
+                      </Button> 
+                    </Col>
+                  </Row>
+        <Row className="rowTableContentHistorie">
         
-      </Row>
-      <Row className="rowTableContentHistorie">{/*mx-2 */}
-        
-          <Collapse in={open} className="py-0">
+          <Collapse in={open} className="p-0">
             <div id="historie-collapse-component">
               <Table striped bordered hover className="tableContentHistorie mb-3">
                 <thead>
@@ -142,6 +167,12 @@ const BauteilOptionen = () => {
               </Table>
             </div>
           </Collapse>
+        </Row>
+        </div>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+        </>):(<></>)}
         
       </Row>
     </Container>
