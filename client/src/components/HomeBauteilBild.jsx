@@ -53,17 +53,15 @@ const HomeBauteilBild = (props) => {
             </Card.Header>
           <Card.Body className="p-2 " >
             <Card.Text className="pb-0" >
-
-            
-  
-
-
-           
-
-
-
-            
-
+            Abmessungen:<br></br>
+            {bauteil.bauteil_beschreibung[0]}
+            <br></br>
+              <br></br>
+              Aufbau: <br></br>{bauteil.bauteil_beschreibung[1]}
+              <br></br>
+              <br></br>
+              Funktion: <br></br>
+              {bauteil.bauteil_beschreibung[2]}    
             </Card.Text>
           </Card.Body>
       </Card>
