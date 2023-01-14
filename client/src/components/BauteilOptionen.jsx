@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { BauteilContext } from "../context/BauteilContext";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Collapse from "react-bootstrap/Collapse";
@@ -55,55 +56,63 @@ const BauteilOptionen = () => {
 
   //React Bootstrap bzw. HTML Code für das Ansehen der Information einer Historie
   return (
-    <Container className="square border border-1 rounded-3 p-1 mt-0 mb-3" md="auto">
-      <Row className="my-3 mx-2">
-        <Col>
-          <Button
-            onClick={historieHandler}
-            aria-controls="historie-collapse-component"
-            aria-expanded={open}
-            variant="secondary"
-            size="md"
-            className="buttonOptionen"
-          >
-            Historie
-          </Button> 
-        </Col>
+    <Container className="" md="auto">
+      <Row className="">
         {isAuth && userData.benutzertyp === "Handwerker" ? (
         <>
-        
-        <Col>
-            <Button
-              onClick={""}
-              variant="secondary"
-              size="md"
-              className="buttonOptionen ">
-              Grundriss
-            </Button>
-          </Col>
-          <Col>
-              <Button
-                onClick={""}
-                aria-controls="historie-collapse-component"
-                aria-expanded={open}
-                variant="secondary"
-                size="md"
-                className="buttonOptionen ">
-                Reparatur
-              </Button>
-            </Col>
-            <Col>
-              <Button
-                onClick={""}
-                aria-controls="historie-collapse-component"
-                aria-expanded={open}
-                variant="secondary"
-                size="md"
-                className="buttonOptionen">
-                Montage
-              </Button>
-
-            </Col></>):(<></>)}
+          <Card className="mobilAdjustmentOptionen ">
+            <Card.Header className="text-center border" as="h4">
+                  Bauteiloptionen
+                </Card.Header>
+              <Card.Body className="p-2 " >
+                <Card.Text className="pb-0" >
+                <Col>
+                  <Button
+                    onClick={historieHandler}
+                    aria-controls="historie-collapse-component"
+                    aria-expanded={open}
+                    variant="secondary"
+                    size="md"
+                    className="buttonOptionen"
+                  >
+                    Historie
+                  </Button> 
+                </Col>
+                <Col>
+                    <Button
+                      onClick={""}
+                      variant="secondary"
+                      size="md"
+                      className="buttonOptionen ">
+                      Grundriss
+                    </Button>
+                  </Col>
+                  <Col>
+                      <Button
+                        onClick={""}
+                        aria-controls="historie-collapse-component"
+                        aria-expanded={open}
+                        variant="secondary"
+                        size="md"
+                        className="buttonOptionen ">
+                        Reparatur
+                      </Button>
+                    </Col>
+                    <Col>
+                      <Button
+                        onClick={""}
+                        aria-controls="historie-collapse-component"
+                        aria-expanded={open}
+                        variant="secondary"
+                        size="md"
+                        className="buttonOptionen">
+                        Montage
+                      </Button>
+                    </Col>     
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+        </>):(<></>)}
         
       </Row>
       <Row className="rowTableContentHistorie">{/*mx-2 */}

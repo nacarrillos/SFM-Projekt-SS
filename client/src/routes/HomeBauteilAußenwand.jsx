@@ -8,6 +8,8 @@ import Col from "react-bootstrap/esm/Col";
 import BauteilUebersichtAußenwand from "../components/BauteilUebersichtAußenwand";
 import BauteilBezeichnung from "../components/BauteilBezeichnung";
 import HomeBauteilBild from "../components/HomeBauteilBild";
+import BauteilOptionen from "../components/BauteilOptionen";
+import "../styles/BaugruppenUebersicht.css";
 
 
 
@@ -21,29 +23,23 @@ const HomeBauteilAußenwand = () => {
       <div>
         <h1 className="text-center mb-4">Herzlich Willkommen {userData.benutzername} !</h1>
       </div>
-      <Row className="mb-2">
-        <Col className="pe-0">
+      <Row className="rowContainer">
+        <Col flex className="px-1 ">
           <BauteilBezeichnung/>
+          <HomeBauteilBild/>
+
         </Col>
-      </Row>
-      <Row>
-        
-        <Col><HomeBauteilBild/></Col>
-        <Col className="square border border-1 rounded-3 p-1">
+                
+        <Col className="px-0">
+          <BauteilOptionen/>
           <BauteilSuche/>
           
           <BauteilUebersichtAußenwand/>
           
         
         </Col>
-      
-
-
-
       </Row>
 
-      
-      
     </Container>
   );
 };
