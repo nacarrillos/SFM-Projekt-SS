@@ -5,7 +5,6 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 
 const BauteilSuche = () => {
@@ -27,7 +26,7 @@ const BauteilSuche = () => {
 
   //React Bootstrap bzw. HTML Code für das Ansehen der suchfeld für Bauteile auf dem Home
   return (
-        <Row className="mx-0 mt-2 mb-4">
+        <Row className="mx-0 mt-0 mb-4">
           <Col>
           <Card className="h-100 mx-1 ">
             <Card.Header className="text-center border" as="h4">
@@ -40,9 +39,8 @@ const BauteilSuche = () => {
                     <Form.Select 
                       size="md"
                       >
-                      <option>Typ</option>
                       <option>Bauteil</option>
-                      <option>Einzelteil</option>
+                      
                     </Form.Select>
                   </Form.Group>
                 </Col>

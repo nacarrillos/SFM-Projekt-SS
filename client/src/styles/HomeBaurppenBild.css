@@ -1,23 +1,17 @@
-.HomeBaurppenBild{
- margin-top: 8px;
- max-height: 495.8px;
- max-width: 518px;
- border-radius: .3rem;
-}
-
-/*max-width: 350, da sonst Bild mit 518px zu zu groß*/
-
-.mobilAdjustment{
+.mobilAdjustmentBaugruppen{
   box-sizing: border-box;
   display: flex;
   padding: 0px !important;
- 
-  border: 1px;
-  border-radius: 2px;
-  border-color: green !important;
   align-content: center;
   justify-content: center;
 }
+
+.HomeBaurppenBild{
+  margin-top: 0px !important;
+  max-height: 495.8px !important;
+  max-width: 518px !important;
+  border-radius: .3rem !important;
+ }
 
 @media screen and (min-width: 395px) and (max-width:852px){
   .HomeBaurppenBild{
@@ -30,15 +24,19 @@
 
 @media screen and (max-width: 394px) {
   .HomeBaurppenBild{
-    max-width: 357px;
+    max-width: 360px !important;
     border-radius: .3rem;
    }
-  .mobilAdjustment{
+  .mobilAdjustmentBaugruppen{
     box-sizing: border-box !important;
     max-width: 350px;
     padding: 0px !important;
-    margin-bottom: 12px;
+    margin-bottom: 24px;
     
   }
   
+}
+
+.AnpassungCard{
+  border: 0px !important;
 }

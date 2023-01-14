@@ -177,50 +177,91 @@ alter table bauteile alter column teilenummer set not null;
 
 alter table bauteile add column bauteil_bild_explosion TEXT;
 
+"Gelöscht um Bauteilbeschreibung als Array anzulegen"
+alter table bauteile drop column bauteil_beschreibung;
+alter table bauteile add column bauteil_beschreibung text[];
+
+
+
 "Einfügen BauteilBild" 
 
 update bauteile set bauteil_bild ='/images/Aussenwand/Aussenwand.png' where id = 17;
 update bauteile set bauteil_name ='Außenwand' where id = 17;
 update bauteile set bauteil_bild_explosion ='/images/Aussenwand/AussenwandExplosion.png' where id = 17;
+update bauteile set bauteil_beschreibung = '{Maße (B x H x T): 3m x 3m x 0.15m, Holzfassade; Lattung; Unterdeckplatte, 
+Außenwände trennen Außen- und Innenraum voneinander und erfüllen als meist tragende Wände die statische Aufgabe, die Vertikallasten aufzunehmen. Zudem werden Außenwände so konstruiert, dass sie einen sommerlichen und winterlichen Wärmeschutz bieten. Außenwände müssen eine Schalldämmung, Wind- und Luftdichtheit bieten sowie den Feuerwiderstand, den die Wand haben muss, um einen gewünschten Brandschutz zu gewährleisten.}' where id = 17;
+
+
+update bauteile set bauteil_beschreibung ='
+Aufbau: Holzfassade; Lattung; Unterdeckplatte
+' where id = 17;
+
+
 
 update bauteile set bauteil_bild ='/images/Aussenwand/AussenwandFenster.png' where id = 18;
 update bauteile set bauteil_name ='Außenwand mit Fensterausschnitt' where id = 18;
+update bauteile set bauteil_beschreibung ='Maße (B x H x T): 3m x 3m x 0,15m + Aussparung für Fenster
+Aufbau: Holzfassade; Lattung; Unterdeckplatte; Fenster' where id = 18;
+
+
 
 update bauteile set bauteil_bild ='/images/Aussenwand/AussenwandTuere.png' where id = 19;
 update bauteile set bauteil_name ='Außenwand mit Türe' where id = 19;
+update bauteile set bauteil_beschreibung ='Maße (B x H x T): 3m x 3m x 0,15m + Aussparung für Tür
+Aufbau: Holzfassade; Lattung; Unterdeckplatte; Tür' where id = 19;
+
+
 
 update bauteile set bauteil_name ='Außenwand4' where id = 20;
+update bauteile set bauteil_beschreibung ='Betrieb' where id = 20;
+
+
 
 update bauteile set bauteil_bild = '/images/Fussboden/Fussboden.png' where id = 9;
 update bauteile set bauteil_name ='Fußboden' where id = 9;
 update bauteile set bauteil_bild_explosion ='/images/Fussboden/FussbodenExplosion.png' where id = 9;
+update bauteile set bauteil_beschreibung ='{''}' where id = 9;
+
+
 
 update bauteile set bauteil_name ='Fußboden2' where id = 10;
+update bauteile set bauteil_beschreibung ='Betrieb' where id = 10;
+
 update bauteile set bauteil_name ='Fußboden3' where id = 11;
+update bauteile set bauteil_beschreibung ='Betrieb' where id = 11;
+
 update bauteile set bauteil_name ='Fußboden4' where id = 12;
+update bauteile set bauteil_beschreibung ='Betrieb' where id = 12;
+
+
 
 update bauteile set bauteil_bild ='/images/Innenwand/Innenwand.png' where id = 13;
 update bauteile set bauteil_name ='Innenwand' where id = 13;
 update bauteile set bauteil_bild_explosion ='/images/Innenwand/InnenwandExplosion.png' where id = 13;
+update bauteile set bauteil_beschreibung ='Betrieb' where id = 13;
+
 
 update bauteile set bauteil_bild ='/images/Innenwand/InnenwandFensterausschnitt.png' where id = 14;
 update bauteile set bauteil_name ='Innenwand mit Fensterausschnitt' where id = 14;
+update bauteile set bauteil_beschreibung ='Betrieb' where id = 14;
 
 update bauteile set bauteil_bild ='/images/Innenwand/InnenwandDurchgang.png' where id = 15;
 update bauteile set bauteil_name ='Innenwand mit Durchgang' where id = 15;
+update bauteile set bauteil_beschreibung ='Betrieb' where id = 15;
 
 update bauteile set bauteil_bild ='/images/Dach/Dach.png' where id = 5;
 update bauteile set bauteil_name ='Dach' where id = 5;
 update bauteile set bauteil_bild_explosion ='/images/Dach/DachExplosion.png' where id = 5;
+update bauteile set bauteil_beschreibung ='Betrieb' where id = 5;
 
 update bauteile set bauteil_bild ='/images/Fenster/Fenster1.png' where id = 1;
-update bauteile set bauteil_bild ='/images/Fenster/Fenster2.png' where id = 2;
+update bauteile set bauteil_beschreibung ='' where id = 1;
 
 update bauteile set bauteil_bild ='/images/Fenster/Fenster2.png' where id = 2;
-
 
 update bauteile set bauteil_name ='Tür1' where id = 25;
 update bauteile set bauteil_bild ='/images/Tuer/Tuer1.png' where id = 25;
+update bauteile set bauteil_beschreibung ='' where id = 25;
 
 
 "Teile"

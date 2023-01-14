@@ -1,0 +1,24 @@
+.mobilAdjustmentBezeichnung{
+
+  box-sizing: border-box;
+  display: flex;
+  padding: 0px !important;
+  max-width: 518px !important;
+  margin-bottom: 0px;
+  border: 1px solid rgba(0,0,0,.125) !important;
+  border-radius: 0.25rem !important;
+  align-content: center;
+  justify-content: center;
+
+}
+
+@media screen and (max-width: 394px) {
+  .mobilAdjustmentBezeichnung{
+    box-sizing: border-box !important;
+    max-width: 360px !important;
+    padding: 0px !important;
+    margin-bottom: 0px !important;
+    border: 0px solid rgba(252, 252, 252, 0) !important;
+  }
+  
+}

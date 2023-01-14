@@ -1,0 +1,14 @@
+            Abmessungen:<br></br>
+            {bauteil.bauteil_beschreibung[0]}
+            <br></br>
+              <br></br>
+              Aufbau: <br></br>{bauteil.bauteil_beschreibung[1]}
+              <br></br>
+              <br></br>
+              Funktion: <br></br>
+              {bauteil.bauteil_beschreibung[2]}<a>, </a>
+              {bauteil.bauteil_beschreibung[3]}<a>, </a>
+              {bauteil.bauteil_beschreibung[4]}<a>, </a>
+              {bauteil.bauteil_beschreibung[5]}<a>, </a>
+              {bauteil.bauteil_beschreibung[6]}<a>, </a>
+              {bauteil.bauteil_beschreibung[7]} 

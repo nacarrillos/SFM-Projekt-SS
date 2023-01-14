@@ -4,9 +4,8 @@ import PathFinder from "../apis/PartFinder";
 import { BauteilContext } from "../context/BauteilContext";
 import Container from "react-bootstrap/Container";
 import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
-
-import "../styles/HomeBaurppenBild.css";
+import Row from 'react-bootstrap/Row';
+import "../styles/HomeBauteilBild.css";
 
 //Function, um Information eines Bauteiles aus dem Backend zu lesen und zu Render mit dem React Bootstrap
 const HomeBauteilBild = (props) => {
@@ -38,21 +37,37 @@ const HomeBauteilBild = (props) => {
 
   //React Bootstrap bzw. HTML Code für das Ansehen der Information eines Bauteiles
   return (
-    <Container className="square border border-1 rounded-3 pt-2 px-3 " sm="auto">
-      <Card className="" >
+    <Container className="" sm="auto">
+      <Row>
+      <Card className="mobilAdjustmentBild">
         <Card.Img 
-          className="HomeBaurppenBild"
+          className="HomeBauteilBild"
           variant="top" 
           alt="/images/Haus/TinyHouse.png"
           src={bauteil.bauteil_bild}/>
-        <Card.Body>
-          <Card.Title>Bauteil-Beschreibung</Card.Title>
-          <Card.Text>
-            {bauteil.bauteil_beschreibung}
-          </Card.Text>
-        </Card.Body>
+        </Card>
+
+        <Card className="mobilAdjustment">
+        <Card.Header className="text-center border" as="h4">
+              Bauteilbeschreibung
+            </Card.Header>
+          <Card.Body className="p-2 " >
+            <Card.Text className="pb-0" >
+
+            
+  
+
+
+           
+
+
+
+            
+
+            </Card.Text>
+          </Card.Body>
       </Card>
-   
+      </Row>
     </Container>
   );
 };
