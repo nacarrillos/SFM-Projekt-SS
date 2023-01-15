@@ -6,31 +6,24 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { useNavigate } from "react-router-dom";
 import { ArrowLeftSquareFill  } from 'react-bootstrap-icons';
 
-
 //Function, um Information eines Bauteiles aus dem Backend zu lesen und zu Render mit dem React Bootstrap
-const TeilegruppeUebersichtAufbau = (props) => {
+const BauteilUebersichtFußboden = (props) => {
 
   let navigate = useNavigate();
 
   const handleSuche = (e) => {
     e.preventDefault();
-    console.log(e.target.textContent)
-    
     try {
-      if(e.target.textContent === "01.01 - Außenwand") {
+      if(e.target.textContent === "tbd") {
         navigate(`/aufbau/aussenwand`);
-      } else if (e.target.textContent === "01.02 - Innenwand") {
+      } else if (e.target.textContent === "tbd") {
           navigate(`/aufbau/innenwand`);
-      } else if (e.target.textContent ===  "01.03 - Fußboden") {
-          navigate(`/aufbau/fussboden`);
-      } else if(e.target.textContent === "01.04 - Dach") {
+      } else if (e.target.textContent === "tbd") {
+          navigate(`/aufbau/fußboden`);
+      } else if(e.target.textContent === "tbd") {
           navigate(`/aufbau/dach`);
-      } else if (e.target.textContent === "01.05 - Fenster") {
-          navigate(`/aufbau/fenster`);
-      } else if (e.target.textContent === "01.06 - Tür") {
-          navigate(`/aufbau/tuer`);
-      }  else if (e.target.textContent === " Baugruppen") {
-        navigate(`/`);
+      }  else if (e.target.textContent === " Bauteile Fußboden") {
+        navigate(`/aufbau/fussboden`);
       } else {}
       
     } catch (err) {
@@ -46,31 +39,28 @@ const TeilegruppeUebersichtAufbau = (props) => {
         <Col>
           <Card className="h-100 mx-1">
             <Card.Header className="text-center border" as="h4">
-              Teilegruppen
+              Einzelteile
             </Card.Header>
             <Card.Body className="p-0 ">
             <ListGroup className="rounded-0 ">
               
               <ListGroup.Item action onClick={(e) => handleSuche(e)}>
-                01.01 - Außenwand
+                01.03.333.001 - Tragschicht
               </ListGroup.Item>
               <ListGroup.Item action onClick={(e) => handleSuche(e)}>
-                 01.02 - Innenwand
+              01.03.333.002 - Bitumen
               </ListGroup.Item>
               <ListGroup.Item action onClick={(e) => handleSuche(e)}>
-                  01.03 - Fußboden
+              01.03.333.003 - Wärmedämmung
               </ListGroup.Item>
               <ListGroup.Item action onClick={(e) => handleSuche(e)}>
-                  01.04 - Dach
+              01.03.333.004 - Trittschalldämmung
               </ListGroup.Item>
               <ListGroup.Item action onClick={(e) => handleSuche(e)}>
-                  01.05 - Fenster
+              01.03.333.005 - Bodenbelag
               </ListGroup.Item>
               <ListGroup.Item action onClick={(e) => handleSuche(e)}>
-                  01.06 - Tür
-              </ListGroup.Item>
-              <ListGroup.Item action onClick={(e) => handleSuche(e)}>
-                <ArrowLeftSquareFill color="grey" size={22} /> Baugruppen
+              <ArrowLeftSquareFill color="grey" size={22} /> Bauteile Fußboden
               </ListGroup.Item>
 
 
@@ -83,4 +73,4 @@ const TeilegruppeUebersichtAufbau = (props) => {
   );
 };
 
-export default TeilegruppeUebersichtAufbau;
+export default BauteilUebersichtFußboden;
