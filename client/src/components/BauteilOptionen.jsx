@@ -59,6 +59,38 @@ const BauteilOptionen = () => {
     setOpen(!open);
   };
 
+
+  //function, um einen Datei-Download zu realisieren
+
+  function donwloadHandler(value){
+
+    console.log ("testdownload", value)
+
+    switch(value){
+
+      
+
+      case "bild":
+        console.log("bild")
+        break;
+      
+      case "zeichnung":
+        console.log("zeichnung")
+        break;
+
+      case "montage":
+        console.log("montage")
+        break;
+
+      case "reparatur":
+        console.log("reparatur")
+        break;
+
+    
+    }
+
+  }
+
   //React Bootstrap bzw. HTML Code für das Ansehen der Information einer Historie
   return (
     <Container className="" md="auto">
@@ -76,7 +108,7 @@ const BauteilOptionen = () => {
 
                     <Col>
                       <Button
-                        onClick={""}
+                        onClick={donwloadHandler("bild")}
                         variant="secondary"
                         size="md"
                         className="buttonOptionen ">
@@ -85,7 +117,7 @@ const BauteilOptionen = () => {
                     </Col>
                     <Col>
                       <Button
-                        onClick={""}
+                        onClick={donwloadHandler("zeichnung")}
                         aria-controls="historie-collapse-component"
                         aria-expanded={open}
                         variant="secondary"
@@ -96,7 +128,7 @@ const BauteilOptionen = () => {
                     </Col>
                     <Col>
                       <Button
-                        onClick={""}
+                        onClick={donwloadHandler("montage")}
                         aria-controls="historie-collapse-component"
                         aria-expanded={open}
                         variant="secondary"
@@ -107,7 +139,7 @@ const BauteilOptionen = () => {
                     </Col>
                     <Col>
                       <Button
-                        onClick={""}
+                        onClick={donwloadHandler("reparatur")}
                         aria-controls="historie-collapse-component"
                         aria-expanded={open}
                         variant="secondary"
