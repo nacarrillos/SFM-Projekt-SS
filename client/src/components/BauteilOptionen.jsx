@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, {useContext, useState} from "react";
 import PathFinder from "../apis/PartFinder";
 import { useParams } from "react-router-dom";
 import { BauteilContext } from "../context/BauteilContext";
@@ -23,6 +23,8 @@ const BauteilOptionen = () => {
 
   //Context für Historie & UserData zu lesen
   const { historie, setHistorie } = useContext(BauteilContext);
+  const { bauteil, setBauteil } = useContext(BauteilContext);
+
   const { userData } = useContext(BauteilContext);
 
   //function um die Historie eines Bauteiles aus Backend zu lesen und in Variable newHistorie zu setzen
@@ -31,7 +33,7 @@ const BauteilOptionen = () => {
       const response = await PathFinder.get(`/aufbau/aussenwand/${teilenummer}/historie`);
       const historie = response.data.data.historie;
 
-      console.log(historie);
+      ;
 
       let newHistorie = historie.map((aufgabe) => {
         let datumauspostgres = new Date(aufgabe.aufgabe_abschlussdatum);
@@ -61,35 +63,28 @@ const BauteilOptionen = () => {
 
 
   //function, um einen Datei-Download zu realisieren
-
-  function donwloadHandler(value){
-
-    console.log ("testdownload", value)
-
-    switch(value){
-
-      
-
-      case "bild":
-        console.log("bild")
-        break;
-      
-      case "zeichnung":
-        console.log("zeichnung")
-        break;
-
-      case "montage":
-        console.log("montage")
-        break;
-
-      case "reparatur":
-        console.log("reparatur")
-        break;
-
+  const downloadHandlerBild = async () => {
+    const response = await PathFinder.get(`/aufbau/aussenwand/${teilenummer}`);
+    window.open(bauteil.bauteil_bild)
     
-    }
-
+    //window.open(bauteil.bauteil_bild);
   }
+
+  const downloadHandlerZeichnung = async () => {
+    const response = await PathFinder.get(`/aufbau/aussenwand/${teilenummer}`);
+    window.open(bauteil.bauteil_bild_zeichnung);
+  }
+
+  const downloadHandlerMontage = async () => {
+    const response = await PathFinder.get(`/aufbau/aussenwand/${teilenummer}`);
+    window.open(bauteil.bauteil_montage_anleitung);
+  }
+
+  const downloadHandlerReparatur = async () => {
+    const response = await PathFinder.get(`/aufbau/aussenwand/${teilenummer}`);
+    window.open(bauteil.bauteil_reparatur_anleitung);
+  }
+
 
   //React Bootstrap bzw. HTML Code für das Ansehen der Information einer Historie
   return (
@@ -108,7 +103,7 @@ const BauteilOptionen = () => {
 
                     <Col>
                       <Button
-                        onClick={donwloadHandler("bild")}
+                        onClick= {downloadHandlerBild}
                         variant="secondary"
                         size="md"
                         className="buttonOptionen ">
@@ -117,7 +112,7 @@ const BauteilOptionen = () => {
                     </Col>
                     <Col>
                       <Button
-                        onClick={donwloadHandler("zeichnung")}
+                        onClick={downloadHandlerZeichnung}
                         aria-controls="historie-collapse-component"
                         aria-expanded={open}
                         variant="secondary"
@@ -128,7 +123,7 @@ const BauteilOptionen = () => {
                     </Col>
                     <Col>
                       <Button
-                        onClick={donwloadHandler("montage")}
+                        onClick={downloadHandlerMontage}
                         aria-controls="historie-collapse-component"
                         aria-expanded={open}
                         variant="secondary"
@@ -139,7 +134,7 @@ const BauteilOptionen = () => {
                     </Col>
                     <Col>
                       <Button
-                        onClick={donwloadHandler("reparatur")}
+                        onClick={downloadHandlerReparatur}
                         aria-controls="historie-collapse-component"
                         aria-expanded={open}
                         variant="secondary"
@@ -150,7 +145,7 @@ const BauteilOptionen = () => {
                     </Col>
                     <Col>
                       <Button
-                        onClick={""}
+                        onClick={downloadHandlerReparatur}
                         aria-controls="historie-collapse-component"
                         aria-expanded={open}
                         variant="secondary"
