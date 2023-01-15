@@ -264,13 +264,13 @@ update bauteile set bauteil_bild ='/images/Fenster/Fenster1.png' where id = 1;
 update bauteile set bauteil_beschreibung ='' where id = 1;
 update bauteile set bauteil_bild_zeichnung = '/images/Fenster/Fenster.PDF' where id = 1;
 update bauteile set bauteil_montage_anleitung = '/images/Fenster/FensterMontageanleitung.PDF' where id = 1;
-update bauteile set bauteil_reparatur_anleitung = '/images/Fenster/FensterReparturanleitung.PDF' where id = 1;
+update bauteile set bauteil_reparatur_anleitung = '/images/Fenster/FensterReparaturanleitung.PDF' where id = 1;
 
 
 update bauteile set bauteil_bild ='/images/Fenster/Fenster2.png' where id = 2;
 update bauteile set bauteil_bild_zeichnung = '/images/Fenster/Fenster.PDF' where id = 2;
 update bauteile set bauteil_montage_anleitung = '/images/Fenster/FensterMontageanleitung.PDF' where id = 2;
-update bauteile set bauteil_reparatur_anleitung = '/images/Fenster/FensterReparturanleitung.PDF' where id = 2;
+
 
 update bauteile set bauteil_name ='Tür1' where id = 25;
 update bauteile set bauteil_bild ='/images/Tuer/Tuer1.png' where id = 25;

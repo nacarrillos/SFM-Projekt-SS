@@ -72,16 +72,19 @@ const BauteilOptionen = () => {
 
   const downloadHandlerZeichnung = async () => {
     const response = await PathFinder.get(`/aufbau/aussenwand/${teilenummer}`);
+    console.log("Zeichnung",bauteil.bauteil_bild_zeichnung)
     window.open(bauteil.bauteil_bild_zeichnung);
   }
 
   const downloadHandlerMontage = async () => {
     const response = await PathFinder.get(`/aufbau/aussenwand/${teilenummer}`);
+    console.log("Montage", bauteil.bauteil_montage_anleitung)
     window.open(bauteil.bauteil_montage_anleitung);
   }
 
   const downloadHandlerReparatur = async () => {
     const response = await PathFinder.get(`/aufbau/aussenwand/${teilenummer}`);
+    console.log("Reparatur", bauteil.bauteil_reparatur_anleitung)
     window.open(bauteil.bauteil_reparatur_anleitung);
   }
 
