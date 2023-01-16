@@ -40,7 +40,7 @@ const BauteilgruppeUebersichtFenster = (props) => {
         <Col>
           <Card className="h-100 mx-1">
             <Card.Header className="text-center border" as="h4">
-              Bauteile Innenwand
+              Bauteile Fenster
             </Card.Header>
             <Card.Body className="p-0 ">
             <ListGroup className="rounded-0 ">
