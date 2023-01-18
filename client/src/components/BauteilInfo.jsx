@@ -21,7 +21,7 @@ const BauteilInfo = (props) => {
       try {
         const response = await PathFinder.get(`/${id}`);
         setBauteil(response.data.data.bauteil[0]);
-        console.log(response);
+        console.log(response.data);
       } catch (err) {
         console.error(err.message);
       }
@@ -31,37 +31,29 @@ const BauteilInfo = (props) => {
 
   //React Bootstrap bzw. HTML Code für das Ansehen der Information eines Bauteiles
   return (
-    <Container className="square border border-1 rounded-3 p-1" sm="auto">
+    <Container className="square border border-1 rounded-3 p-2" sm="auto">
       <Row className="d-flex py-2 mx-0">
         <h1 className="text-center">{bauteil.bauteil_name}</h1>
       </Row>
-      <Row className="mx-0">
-        <Col>
-          <Card className="h-100 mx-1">
-            <Card.Header className="text-center" as="h3">
-              Beschreibung
-            </Card.Header>
-            <Card.Body>
-              <p className="text-justify fs-3">
-                {bauteil.bauteil_beschreibung}
-              </p>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col>
-          <Card className="mx-1">
-            <Card.Header className="text-center" as="h3">
-              Bild
-            </Card.Header>
-            <Card.Img
-              className="p-1"
-              alt={bauteil.bauteil_name}
-              variant="bottom"
-              src={bauteil.bauteil_bild}
-            ></Card.Img>
-          </Card>
-        </Col>
-      </Row>
+      <Card className="mx-1">
+        <Card.Header className="text-center" as="h3">
+          Bild
+        </Card.Header>
+        <Card.Img
+          className="p-1"
+          alt={bauteil.bauteil_name}
+          variant="bottom"
+          src={bauteil.bauteil_bild}
+        ></Card.Img>
+      </Card>
+      <Card className="h-100 mx-1">
+        <Card.Header className="text-center" as="h3">
+          Beschreibung
+        </Card.Header>
+        <Card.Body>
+          <p className="text-justify fs-6">{bauteil.bauteil_beschreibung}</p>
+        </Card.Body>
+      </Card>
     </Container>
   );
 };

@@ -13,11 +13,17 @@ const {
 const { userAuth } = require("../middleware/auth-middleware");
 const { hash } = require("bcryptjs");
 
-// Alte API für den Abruf von Information aus einem Bauteil durch ID 
+// Alte API für den Abruf von Information aus einem Bauteil durch ID
 router.get("/api/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const results = await db.query("select * from bauteile where id=$1", [id]);
+    const { rows } = await db.query("select * from bauteileserie where id=$1", [
+      id,
+    ]);
+    const bauteileID = rows[0].bauteile_id;
+    const results = await db.query("select * from bauteile where id=$1", [
+      bauteileID,
+    ]);
     res.status(200).json({
       status: "success",
       data: {
@@ -29,11 +35,41 @@ router.get("/api/:id", async (req, res) => {
   }
 });
 
+router.get("/api/:id/haus", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const { rows } = await db.query(
+      "select haus_id from bauteileserie where id=$1",
+      [id]
+    );
+    const houseID = rows[0].haus_id;
+    const results = await db.query("select * from haeuse where id=$1", [
+      houseID,
+    ]);
+    const besitzerID = results.rows[0].besitzer_id;
+    const results2 = await db.query("select * from benutzer where id=$1", [
+      besitzerID,
+    ]);
+    res.status(200).json({
+      status: "success",
+      data: {
+        haus: results.rows,
+        besitzer: results2.rows[0].benutzername + results2.rows[0].nachname,
+      },
+    });
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
 //API für den Abruf von Information aus einem Bauteil durch Teilenummer
 router.get("/api/aufbau/aussenwand/:teilenummer", async (req, res) => {
   try {
     const teilenummer = req.params.teilenummer;
-    const results = await db.query("select * from bauteile where teilenummer=$1", [teilenummer]);
+    const results = await db.query(
+      "select * from bauteile where teilenummer=$1",
+      [teilenummer]
+    );
     res.status(200).json({
       status: "success",
       data: {
@@ -50,7 +86,7 @@ router.get("/api/:id/historie", async (req, res) => {
   try {
     const id = req.params.id;
     const results = await db.query(
-      "select * from aufgaben where bauteil_id=$1",
+      "select * from aufgaben where bauteilserie_id=$1",
       [id]
     );
 
@@ -65,25 +101,26 @@ router.get("/api/:id/historie", async (req, res) => {
   }
 });
 
+//API unnötig weil Stückliste nicht mit realen aufgaben
 //API für den Abruf der Historie aus einem Bauteil durch ID
-router.get("/api/aufbau/aussenwand/:teilenummer/historie", async (req, res) => {
-  try {
-    const teilenummer = req.params.teilenummer;
-    const results = await db.query(
-      "select * from aufgaben where teilenummer=$1",
-      [teilenummer]
-    );
+// router.get("/api/aufbau/aussenwand/:teilenummer/historie", async (req, res) => {
+//   try {
+//     const teilenummer = req.params.teilenummer;
+//     const results = await db.query(
+//       "select * from aufgaben where teilenummer=$1",
+//       [teilenummer]
+//     );
 
-    res.status(200).json({
-      status: "success",
-      data: {
-        historie: results.rows,
-      },
-    });
-  } catch (err) {
-    console.error(err.message);
-  }
-});
+//     res.status(200).json({
+//       status: "success",
+//       data: {
+//         historie: results.rows,
+//       },
+//     });
+//   } catch (err) {
+//     console.error(err.message);
+//   }
+// });
 
 //API für den Abruf vom Benutzertyp aus einem Benutzer mit dem Benutzername -> zur Darstellung der Seiten anders für jede Benutzertyp
 router.get("/user/benutzertyp/:benutzername", async (req, res) => {

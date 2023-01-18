@@ -420,3 +420,63 @@ values ('Produktion','Bauteil ist verpackt','2022-05-28', '2022-05-28 07:35:30',
 
 insert into aufgaben (aufgabe_typ, aufgabe_beschreibung, aufgabe_abschlussdatum,aufgabe_timestamp_start,aufgabe_timestamp_end, aufgabe_dauer, benutzer_id, bauteil_id,teilenummer) 
 values ('Montage','Bauteil ist montiert','2022-05-28','2022-05-28 10:34:50', '2022-05-28 12:08:00', AGE('2022-05-28 12:08:00','2022-05-28 10:34:50') ,8, 17, '01.01.001');
+
+
+-- Logik für Trennung zwischen Haus und Stückliste
+
+create table haeuse(
+    id BIGSERIAL NOT NULL PRIMARY KEY, 
+    baujahr INTEGER NOT NULL,
+    adresse VARCHAR(50),
+    besitzer_id BIGINT NOT NULL REFERENCES benutzer(id)
+);
+
+-- neue Besitzer registriert mit Admin Interace 
+
+insert into haeuse (baujahr, adresse, besitzer_id) values (2022, 'Tiny House Straße 33, xxxx, Göppingen', 37);
+
+CREATE TABLE bauteileserie(
+    id BIGSERIAL NOT NULL PRIMARY KEY, 
+    herstellungsdatum DATE NOT NULL, 
+    entsorgungsdatum DATE, 
+    haus_id BIGINT REFERENCES haeuse(id),
+    bauteile_id BIGINT NOT NULL REFERENCES bauteile(id)
+);
+
+-- muss mit richtige id von außenwände gelegt werden
+INSERT into bauteileserie (herstellungsdatum, haus_id, bauteile_id) values ('18.01.2022', 1, 17);
+INSERT into bauteileserie (herstellungsdatum, haus_id, bauteile_id) values ('18.01.2022', 1, 18);
+INSERT into bauteileserie (herstellungsdatum, haus_id, bauteile_id) values ('18.01.2022', 1, 19);
+
+-- muss mit richtige id von innenwände gelegt werden
+INSERT into bauteileserie (herstellungsdatum, haus_id, bauteile_id) values ('18.01.2022', 1, 13);
+INSERT into bauteileserie (herstellungsdatum, haus_id, bauteile_id) values ('18.01.2022', 1, 14);
+INSERT into bauteileserie (herstellungsdatum, haus_id, bauteile_id) values ('18.01.2022', 1, 15);
+
+-- muss mit richtige id von Fußboden gelegt werden
+INSERT into bauteileserie (herstellungsdatum, haus_id, bauteile_id) values ('18.01.2022', 1, 9);
+
+-- muss mit richtige id von Dach gelegt werden
+INSERT into bauteileserie (herstellungsdatum, haus_id, bauteile_id) values ('18.01.2022', 1, 5);
+
+-- muss mit richtige id von fenster gelegt werden
+INSERT into bauteileserie (herstellungsdatum, haus_id, bauteile_id) values ('18.01.2022', 1, 2);
+
+-- muss mit richtige id von tuer gelegt werden
+INSERT into bauteileserie (herstellungsdatum, haus_id, bauteile_id) values ('18.01.2022', 1, 25);
+
+
+-- auf aufgaben muss bauteile für bauteileserie geändert werden, erst gelöscht und dann wider angelegt
+alter TABLE aufgaben DROP COLUMN bauteil_id;
+ALTER TABLE aufgaben ADD COLUMN bauteilserie_id BIGINT  REFERENCES bauteileserie(id);
+UPDATE aufgaben SET bauteilserie_id=9 where id=3;
+UPDATE aufgaben SET bauteilserie_id=9 where id=4;
+UPDATE aufgaben SET bauteilserie_id=9 where id=5;
+UPDATE aufgaben SET bauteilserie_id=10 where id=6;
+UPDATE aufgaben SET bauteilserie_id=10 where id=8;
+UPDATE aufgaben SET bauteilserie_id=5 where id=7;
+UPDATE aufgaben SET bauteilserie_id=7 where id=9;
+-- not null constraint hinzugefügta
+ALTER TABLE aufgaben ALTER COLUMN bauteilserie_id SET NOT NULL;
+-- teilenummer für aufgaben nicht  nötig
+ALTER TABLE aufgaben drop column teilenummer;

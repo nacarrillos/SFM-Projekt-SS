@@ -8,6 +8,7 @@ export const BauteilContextProvider = (props) => {
   const [bauteil, setBauteil] = useState([]);
   const [historie, setHistorie] = useState([]);
   const [userData, setUserData] = useState({});
+  const [haus, setHaus] = useState({});
 
   return (
     <BauteilContext.Provider
@@ -18,6 +19,8 @@ export const BauteilContextProvider = (props) => {
         setHistorie,
         userData,
         setUserData,
+        haus,
+        setHaus,
       }}
     >
       {props.children}

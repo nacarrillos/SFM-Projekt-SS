@@ -9,35 +9,25 @@ import HomeBaugruppenBild from "../components/HomeBaugruppenBild";
 import BauteilgruppeUebersichtFenster from "../components/BauteilgruppeUebersichtFenster";
 import "../styles/BaugruppenUebersicht.css";
 
-
-
 //Homes des Websites URL
 const HomeFenster = () => {
   const { userData } = useContext(BauteilContext);
   console.log(userData.benutzername);
   return (
-    
     <Container fluid className="bodyContainer">
       <div>
-        <h1 className="text-center mb-4">Herzlich Willkommen {userData.benutzername} !</h1>
+        <h1 className="text-center mb-4">
+          Herzlich Willkommen {userData.benutzername} !
+        </h1>
       </div>
       <Row className="rowContainer">
-        <Col fluid className="px-0"><HomeBaugruppenBild/></Col>
-        <Col className="px-0">
-          <BauteilSuche/>
-          
-          <BauteilgruppeUebersichtFenster/>
-          
-        
+        <Col fluid className="px-0">
+          <HomeBaugruppenBild />
         </Col>
-      
-
-
-
+        <Col className="px-0">
+          <BauteilgruppeUebersichtFenster />
+        </Col>
       </Row>
-
-      
-      
     </Container>
   );
 };

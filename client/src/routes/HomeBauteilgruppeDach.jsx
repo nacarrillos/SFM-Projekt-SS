@@ -9,35 +9,25 @@ import HomeBaugruppenBild from "../components/HomeBaugruppenBild";
 import BauteilgruppeUebersichtDach from "../components/BauteilgruppeUebersichtDach";
 import "../styles/BaugruppenUebersicht.css";
 
-
-
 //Homes des Websites URL
 const HomeDach = () => {
   const { userData } = useContext(BauteilContext);
   console.log(userData.benutzername);
   return (
-    
     <Container fluid className="bodyContainer">
       <div>
-        <h1 className="text-center mb-4">Herzlich Willkommen {userData.benutzername} !</h1>
+        <h1 className="text-center mb-4">
+          Herzlich Willkommen {userData.benutzername} !
+        </h1>
       </div>
       <Row className="rowContainer">
-        <Col fluid className="px-0"><HomeBaugruppenBild/></Col>
-        <Col className="px-0">
-          <BauteilSuche/>
-          
-          <BauteilgruppeUebersichtDach/>
-          
-        
+        <Col fluid className="px-0">
+          <HomeBaugruppenBild />
         </Col>
-      
-
-
-
+        <Col className="px-0">
+          <BauteilgruppeUebersichtDach />
+        </Col>
       </Row>
-
-      
-      
     </Container>
   );
 };
