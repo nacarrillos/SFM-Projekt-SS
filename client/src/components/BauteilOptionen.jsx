@@ -160,7 +160,7 @@ const BauteilOptionen = () => {
                           size="md"
                           className="buttonOptionen"
                         >
-                          tbd
+                          Auftrag
                         </Button>
                       </Col>
                       {historyActive ? (
