@@ -30,7 +30,6 @@ const HomeBauteilFenster = () => {
 
         <Col className="px-0">
           <BauteilOptionen />
-          <BauteilSuche />
 
           <BauteilUebersichtFenster />
         </Col>

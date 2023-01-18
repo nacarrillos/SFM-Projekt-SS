@@ -480,3 +480,43 @@ UPDATE aufgaben SET bauteilserie_id=7 where id=9;
 ALTER TABLE aufgaben ALTER COLUMN bauteilserie_id SET NOT NULL;
 -- teilenummer für aufgaben nicht  nötig
 ALTER TABLE aufgaben drop column teilenummer;
+
+
+-- Neue Anpassung der Beschreibung Teile 
+ALTER TABLE bauteile ALTER COLUMN bauteil_beschreibung TYPE TEXT;
+
+UPDATE bauteile SET bauteil_beschreibung= 'Masse (B x H x T): 3m x 3m x 0,15m
+Aufbau: Holzfassade; Lattung; Unterdeckplatte 
+Funktion: Außenwaende trennen Außen- und Innenraum voneinander und erfuellen als meist tragende Waende die statische Aufgabe, die Vertikallasten aufzunehmen. Zudem werden Aussenwaende so konstruiert, dass sie einen sommerlichen und winterlichen Waermeschutz bieten. Aussenwaende muessen eine Schalldaemmung, Wind- und Luftdichtheit bieten sowie den Feuerwiderstand, den die Wand haben muss, um einen gewuenschten Brandschutz zu gewaehrleisten.' where id=17;
+
+UPDATE bauteile SET bauteil_beschreibung= 'Masse (B x H x T): 3m x 3m x 0,15m + Aussparung fuer Fenster
+Aufbau: Holzfassade; Lattung; Unterdeckplatte; Fenster' where id=18;
+
+UPDATE bauteile SET bauteil_beschreibung= 'Masse (B x H x T): 3m x 3m x 0,15m + Aussparung fuer Tuer
+Aufbau: Holzfassade; Lattung; Unterdeckplatte; Tuer' where id=19;
+
+UPDATE bauteile SET bauteil_name= 'aussenwand mit Tuere' where id=19;
+
+UPDATE bauteile SET bauteil_beschreibung= 'Masse (B x H x T): 3m x 3m x 0,2m
+Aufbau: Innenverkleidung; Holzwand; Waermedaemmung
+Funktion: Innenwaende sind Waende, die im Inneren eines Gebaeudes liegen und meist zwei Raeume oder Bereiche voneinander trennen. Innenwaende werden ausserdem gedaemmt, um im Inneren des Gebaeudes ein angenehmes Raumklima zu gewaehren. Weitere Eigenschaften der Innenwand sind Schalldaemmmaßnahmen, Brandschutzanforderungen und die Funktion von z.B. der Realisierung von Elektro-, Wasser-, und Telekommunikationsinstallationen.' where id=13;
+
+UPDATE bauteile SET bauteil_beschreibung= 'Masse (B x H x T): 3m x 3m x 0,2m + Ausschnitt fuer Fenster
+Aufbau: Innenverkleidung; Holzwand; Wärmedaemmung' where id=14;
+
+UPDATE bauteile SET bauteil_beschreibung= 'Masse (B x H x T): 3m x 3m x 0,2m + Ausschnitt für Tuer
+Aufbau: Innenverkleidung; Holzwand; Wärmedaemmung' where id=15;
+
+UPDATE bauteile SET bauteil_beschreibung= 'Masse (L x B x H): 3m x 3m x 0,27m
+Aufbau: Tragschicht; Bitumen; Waermedaemmung; Trittschalldaemmung; Bodenbelag
+Funktion: Die Tragschicht gilt als Fundament des Fußbodens. Dieser muss gegen Feuchtigkeit abgedichtet sein. Die Waerme- und Trittschaldaemmung nennt man zusammen auch Unterbodenkonstruktion. Diese sorgt fuer die Wohnqualitaet. Zudem werden Unebenheiten im Boden an dieser Stelle ausgeglichen. Der Bodenbelag ist der Nutzbelag des Gebaeudes. Dieser kann je nach persoenlicher Anforderung gewaehlt werden.' where id=9;
+
+UPDATE bauteile SET bauteil_beschreibung= 'Masse (L x B x H): 3m x 3m x 0,27m
+Aufbau: Tragschicht; Bitumen; Waermedaemmung; Trittschalldaemmung; Bodenbelag
+Funktion: Die Tragschicht gilt als Fundament des Fußbodens. Dieser muss gegen Feuchtigkeit abgedichtet sein. Die Waerme- und Trittschaldaemmung nennt man zusammen auch Unterbodenkonstruktion. Diese sorgt fuer die Wohnqualitaet. Zudem werden Unebenheiten im Boden an dieser Stelle ausgeglichen. Der Bodenbelag ist der Nutzbelag des Gebaeudes. Dieser kann je nach persoenlicher Anforderung gewaehlt werden.' where id=5;
+
+UPDATE bauteile SET bauteil_beschreibung= 'Masse (B x H x T): 2m x 0,5m x 0,15m
+Aufbau: Scherenlager; Fensterglas; Ecklager; Fenstergriff; Fluegelrahmen; Blendrahmen' where id=1;
+
+UPDATE bauteile SET bauteil_beschreibung= 'Masse (B x H x T): 1m x 2m x 0,15m
+Aufbau: Zarge; Tuerblatt; Drueckergarnitur; Schlosskasten; Schließblech; Tuerband; Schlossrosette' where id=25;
